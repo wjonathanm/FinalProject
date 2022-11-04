@@ -1,0 +1,17 @@
+doctype html
+html
+    head
+        meta(charset='UTF-8')
+        link(rel="stylesheet" href="myStyles.css")
+    body
+        div.login
+            h2.login Welcome to Aldi
+            form(action = "/LogIn" method = "Post")
+                label.login User Id:
+                input(type='text' value='userId')
+                br
+                Label.login Password:
+                input(type='text' value='password')
+                br
+                button.login(type='button' value='submit' onclick='') Submit
+
