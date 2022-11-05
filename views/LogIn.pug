@@ -2,16 +2,17 @@ doctype html
 html
     head
         meta(charset='UTF-8')
-        link(rel="stylesheet" href="myStyles.css")
+        link(rel="stylesheet" href="/css/myStyles.css")
     body
         div.login
-            h2.login Welcome to Aldi
+            h2.h2 Welcome to Aldi
             form(action = "/LogIn" method = "Post")
-                label.login User Id:
-                input(type='text' value='userId')
-                br
-                Label.login Password:
-                input(type='text' value='password')
-                br
-                button.login(type='button' value='submit' onclick='') Submit
+                div.login
+                    label.label User Id:
+                    input.input(type='text' value='userId')
+                    br
+                    Label.label Password:
+                    input.input(type='text' value='password')
+                    br
+                    button.button(type='button' value='submit' onclick='') Submit
 
