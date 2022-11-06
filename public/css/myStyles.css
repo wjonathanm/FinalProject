@@ -1,15 +1,20 @@
 body{
-    background-image: url("download.jpg");
+    background-image: url("healthy-aldi-finds-coming-to-store-copy.jpg");
+    background-size: 1540px;
 }
 .login {
     max-width: 400px;
-    margin: 0 auto;
-    padding-top: 50px;
+    /*margin: 100px;*/
+    margin: 115px auto;
+    padding: 25px;
+    background-image: url("ASG_SER_MC_RGB.png");
+    background-size: 450px;
 }
 .label {
     font-size: 20px;
    text-align: left;
     display: block;
+    color: white;
 }
 .h2 {
     font-size: 45px;
