@@ -10,6 +10,14 @@ app.get("/LogIn", (req, res) => {
     res.render('LogIn', {
     })
 });
+app.get("/EmployeePTO", (req, res) => {
+    res.render('EmployeePTO', {
+    })
+});
+app.get("/EmployeePTO/Request", (req, res) => {
+    res.render('Request', {
+    })
+});
 
 let port = 3000;
 app.listen( port, ()=>{
