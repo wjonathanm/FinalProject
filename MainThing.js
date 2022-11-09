@@ -18,6 +18,10 @@ app.get("/EmployeePTO/Request", (req, res) => {
     res.render('Request', {
     })
 });
+app.get("/ManagerPTO", (req,res) => {
+    res.render('ManagerPTO',{
+    });
+});
 
 let port = 3000;
 app.listen( port, ()=>{
