@@ -22,6 +22,10 @@ app.get("/ManagerPTO", (req,res) => {
     res.render('ManagerPTO',{
     });
 });
+app.get("/AdminUser", (req, res) => {
+    res.render('AdminUser', {
+    })
+});
 
 let port = 3000;
 app.listen( port, ()=>{
