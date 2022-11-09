@@ -11,6 +11,7 @@ h2{
     padding:20px 50px 75px 50px;
     font-size: 18pt;
     margin: 50px 75px 50px 75px;
+    background-color: orange;
 }
 p1{
     text-align: center;
@@ -40,7 +41,7 @@ h3{
 }
 .input {
     text-align: center;
-    width: 90%;
+    width: 60%;
     padding: 6px 10px;
     /*margin: 10px;*/
     margin-left: 20px;

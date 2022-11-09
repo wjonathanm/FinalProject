@@ -18,6 +18,10 @@ app.get("/EmployeePTO/Request", (req, res) => {
     res.render('Request', {
     })
 });
+app.get("/EmployeePTO/History", (req, res) => {
+        res.render('History', {
+    })
+});
 
 let port = 3000;
 app.listen( port, ()=>{
