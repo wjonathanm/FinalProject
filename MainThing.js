@@ -20,6 +20,15 @@ app.get("/EmployeePTO/Request", (req, res) => {
 });
 app.get("/EmployeePTO/History", (req, res) => {
         res.render('History', {
+        })
+});
+
+app.get("/ManagerPTO", (req,res) => {
+    res.render('ManagerPTO',{
+    });
+});
+app.get("/AdminUser", (req, res) => {
+    res.render('AdminUser', {
     })
 });
 
