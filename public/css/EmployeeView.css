@@ -1,5 +1,5 @@
 body{
-    /*background-color: #001E78;*/
+    background-image: linear-gradient(to right, #FA8214, #C80000);
 }
 h1{
     text-align: center;
@@ -7,10 +7,13 @@ h1{
 }
 h2{
     text-align: center;
-    border: 1px solid black;
+    border-radius: 25px;
+    /*border: 1px solid black;*/
     padding:20px 50px 75px 50px;
     font-size: 18pt;
-    margin: 50px 75px 50px 75px;
+    margin: 25px 200px 25px 200px;
+    /*background-image: linear-gradient(to right, #00B4DC , #4169B9, #001E78);*/
+    background-color: #dddddd;
 }
 p1{
     text-align: center;
@@ -25,7 +28,6 @@ p1{
 h3{
     text-align: center;
 }
-
 .row:after {
     content: "";
     display: table;
