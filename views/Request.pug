@@ -10,35 +10,28 @@ html
     body
         include html/nav.html
         div
-            h2 Request Form
+            h1 Request Form
+            h2
                 br
                 br
                 form(action = "/Request" method = "Post")
-                    label.label Work ID:
-                    input.input(type='text' value='Id')
-                    br
-                    Label.label First Name:
-                    input.input(type='text' value='fName')
-                    br
-                    Label.label Last Name:
-                    input.input(type='text' value='lName')
-                    br
-                    Label.label Email:
-                    input.input(type='text' value='email')
-                    br
-                    Label.label Phone Number:
-                    input.input(type='text' value='pNumber')
-                    br
-                    Label.label Supervisor Name:
-                    input.input(type='text' value='fName')
+                    label.label Start Date:
+                    input.input(type='text' value='mm/dd/yyyy')
                     br
                     br
-                    | Subjects:
-                    select(name="subject" id="subject")
-                        option(value="" selected="selected") Select subject
+                    Label.label End Date:
+                    input.input(type='text' value='mm/dd/yyyy')
+                    br
+                    br
+                    label.label PTO Type:
+                    select(name="ptoType" id="selectPto")
+                        option(value="" selected="selected") Vacation
+                        option(value="" ) Sick
+                        option(value="" ) Personal
+                    br
                     br
                     Label.label Reason:
                     input.input(type='text' value='Reason')
                     br
                     br
-                    button.button(type='button' value='submit' onclick='') Submit
+                    button.b2(class='btn btn-success' type='button' value='submit' onclick='') Submit
