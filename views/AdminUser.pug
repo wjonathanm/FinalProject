@@ -3,49 +3,23 @@ html
     head
         meta(charset='UTF-8')
         script(src='/js/EmployeeScript.js')
+        script(src='/js/calendar.js')
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
         link(rel="stylesheet" href="/css/AdminView.css")
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
 
     body
         include html/nav.html
+        include html/searchbar.html
         h1 Hello Administrator
             div
-            h2
-                table Delete Employee Table
-                tr
-                    td="Employee"
-                    td="ID"
-                    td="Start Date"
-                    td="button here"
-            h2
-            h4
-                input(class='btn btn-primary' type='submit' value= `Delete employee`)
-            div
-            h2
-                table Set Advance Time
-                tr
-                    td="Employee"
-                    td="ID"
-                    td="role"
-                    td="days in advance"
-                    td="button here"
-                    td
-            h2
-            div
-            h2
-                table Set Holiday
-                tr
-                    td="Date"
-                    td="Cant Request these days"
-                    td
-            h2
-            div
-            h2
-                table Modify Time
-                tr
-                    td="Employee ID"
-                    td="Name"
-                    td="Request"
-                    td="Delete here"
-            h2
+                h3 SET TIME IN ADVANCE
+                    button(button type="button" class="btn btn-primary btn-lg" onclick='href./setadvancetime')
+                h3 Set Holiday
+                    button(button type="button" class="btn btn-primary btn-lg" onclick='href./setholiday')
+            h2 Modify Time
+                include html/calendar.html
+                h4 SHOW ALL MANAGERS
+                button(button type="button" class="btn btn-primary btn-lg" onclick='href./showallmanagers')
+                h4 SHOW ALL EMPLOYEES
+                button(button type="button" class="btn btn-primary btn-lg" onclick='href./showallemployees')
