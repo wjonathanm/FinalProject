@@ -4,7 +4,24 @@ html
         meta(charset='UTF-8')
         script(src='/js/EmployeeScript.js')
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-        link(rel="stylesheet" href="/css/EmployeeView.css")
+        link(rel="stylesheet" href="/css/ManagerView.css")
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
 
     body
+        include html/nav.html
+        h1 Manager PTO Info
+        br
+        h3
+            div.row
+                div.column Vacation
+                    div Days Left: 6/20
+                div.column Total
+                    div Days Left: 6/12
+        h1 Request
+        input
+        button(class='btn btn-success' type='button' value='Request' onclick='') Request
+        h1 Reply Request
+        br
+        h3
+        button(class='btn btn-success' type='button' value='Request' onclick='') Resend Request
+        button(class='btn btn-success' type='button' value='Request' onclick='') Accept Request

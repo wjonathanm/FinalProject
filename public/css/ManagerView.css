@@ -1,0 +1,33 @@
+body{
+    background-image: linear-gradient(to right, #FA8214, #C80000);
+}
+h1{
+    text-align: center;
+    padding-top: 20px;
+}
+h3{
+    text-align: center;
+    border-radius: 35px;
+    padding:10px 25px 50px 25px;
+    font-size: 19pt;
+    margin: 25px 205px 25px 205px;
+    background-color: #dddddd;
+}
+.column {
+    float: left;
+    width: 25%;
+}
+button{
+    text-align: center;
+    padding:10px 25px 50px 25px;
+    margin: 30px 220px 30px 220px;
+}
+input{
+    text-align: left;
+    width: 67%;
+    border-radius: 35px;
+    padding:10px 25px 50px 25px;
+    font-size: 19pt;
+    margin: 25px 205px 25px 205px;
+    background-color: #dddddd;
+}
