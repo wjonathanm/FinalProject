@@ -21,8 +21,9 @@ html
         br
         input
         button(class='btn btn-success' type='button' value='Request' onclick='') Request
-        h1 Reply Requests
+        h1 Change Requests
         br
+        form(method="get" action="/ChangeManager")
         h3
             table.table
                 tr
@@ -34,38 +35,41 @@ html
                     th Anniversary Date
                     th Vacation Type
                     th Days Requested
-                tr
-                    td
-                    td
-                    td
-                    td
-                    td
-                    td
-                    td
-                    td
-        button(class='btn btn-success' type='button' value='Request' onclick='') Resend Request
-        h1 Accept Requests
-        br
-        h3
-            table.table
-                tr
-                    th Full Name
-                    th ID
-                    th Role
-                    th Supervisor
-                    th Supervisor ID
-                    th Anniversary Date
-                    th Days Requested
-                    th Vacation Type
                     th Reasoning
                 tr
+                    td Luke Samson
+                    td 0123456
+                    td Employee
+                    td Markus Kathill
+                    td 6789101
+                    td 01/01
+                    td Sick
+                    td 04/06 - 04/9
                     td
-                    td
-                    td
-                    td
-                    td
-                    td
-                    td
-                    td
+        button(class='btn btn-success' type='button' value='Request' onclick='') Change Request
+        h1 Accept Requests
+        br
+        form(method="get" action="/AcceptManager")
+        h3
+            table.table
+                tr
+                    th Full Name
+                    th ID
+                    th Role
+                    th Supervisor
+                    th Supervisor ID
+                    th Anniversary Date
+                    th Vacation Type
+                    th Days Requested
+                    th Reasoning
+                tr
+                    td Mike Knull
+                    td 0246810
+                    td Employee
+                    td Nathan Bampell
+                    td 0369113
+                    td 02/14
+                    td Personal
+                    td 06/11 - 06/16
                     td
         button(class='btn btn-success' type='button' value='Request' onclick='') Accept Request
