@@ -47,7 +47,10 @@ h3{
     /*margin: 10px;*/
     margin-left: 20px;
     margin-top: 10px;
-    border: 1px solid #ddd;
+    /*border: 1px solid? #ddd;*/
     box-sizing: border-box;
     /*display: block;*/
+}
+.table,th,td{
+    border: 1px solid black;
 }

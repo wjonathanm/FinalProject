@@ -33,6 +33,15 @@ app.get("/ManagerPTO", (req,res) => {
     res.render('ManagerPTO',{
     });
 });
+app.get("/ManagerPTO/ChangeManager", (req,res) => {
+    res.render('ChangeManager',{
+    });
+});
+app.get("/ManagerPTO/AcceptManager", (req,res) => {
+    res.render('AcceptManager',{
+    });
+});
+
 app.get("/AdminUser", (req, res) => {
     res.render('AdminUser', {
     })
