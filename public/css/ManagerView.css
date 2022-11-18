@@ -31,6 +31,10 @@ input {
     margin: 25px 205px 25px 205px;
     background-color: #dddddd;
 }
+select {
+    padding: 15px 15px 15px 15px;
+    margin: 25px 235px 25px 235px;
+}
 table {
     width: 100%;
     border-collapse: collapse;

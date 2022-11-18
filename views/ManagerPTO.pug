@@ -19,6 +19,11 @@ html
                     div Days Left: 6/12
         h1 Request
         br
+        select
+            option --- Select PTO Type ---
+            option Vacation
+            option (Emergency) Sick
+            option (Emergency) Personal
         input
         button(class='btn btn-success' type='button' value='Request' onclick='') Request
         h1 Change Requests
@@ -46,7 +51,7 @@ html
                     td Sick
                     td 04/06 - 04/9
                     td
-        button(class='btn btn-success' type='button' value='Request' onclick='') Change Request
+            button(class='btn btn-success' type='button' value='Request' onclick='') Change Request
         h1 Accept Requests
         br
         form(method="get" action="/AcceptManager")
@@ -72,4 +77,4 @@ html
                     td Personal
                     td 06/11 - 06/16
                     td
-        button(class='btn btn-success' type='button' value='Request' onclick='') Accept Request
+            button(class='btn btn-success' type='button' value='Request' onclick='') Accept Request
