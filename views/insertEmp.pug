@@ -1,0 +1,74 @@
+head
+    title Form Tester
+    script(type='text/javascript').
+        function sendJSON() {
+            fetch("./data/PTOUserSeedData.json", {
+                method: 'POST',
+                action: '/insert',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                }
+                // .then(response => response.json())
+                .then(data => {
+                    for (let i = 0; i < data.length; i++) {
+                        let EmployeeId = data[i].EmployeeId;
+                        let FirstName = data[i].FirstName;
+                        let LastName = data[i].LastName;
+                        let Email = data[i].Email;
+                        let HireDate = data[i].HireDate;
+                        let LeaderID = data[i].LeaderId;
+                        let Role = data[i].Role;
+                        let PTOVac = data[i].PtoBalance.Vacation;
+                        let PTOSick = data[i].PtoBalance.Sick;
+                        let PTOPers = data[i].PtoBalance.Personal;
+                        console.log(EmployeeId, FirstName, LastName, Email, HireDate, LeaderID, Role, PTOVac, PTOSick, PTOPers);
+                    }
+                })
+            })
+            // fetch("./data/PTOUserSeedData.json")
+            //     .then(response => {
+            //         return response.json();
+            //     })
+            //     .then(data => {
+            //         for (let i = 0; i < data.length; i++) {
+            //             let EmployeeId = data[i].EmployeeId;
+            //             let FirstName = data[i].FirstName;
+            //             let LastName = data[i].LastName;
+            //             let Email = data[i].Email;
+            //             let HireDate = data[i].HireDate;
+            //             let LeaderID = data[i].LeaderId;
+            //             let Role = data[i].Role;
+            //             let PTOVac = data[i].PtoBalance.Vacation;
+            //             let PTOSick = data[i].PtoBalance.Sick;
+            //             let PTOPers = data[i].PtoBalance.Personal;
+            //             console.log(EmployeeId, FirstName, LastName, Email, HireDate, LeaderID, Role, PTOVac, PTOSick, PTOPers);
+            //         }
+            //     })
+        }
+body
+    div
+        h1 Send JSON to Node
+            //table.table
+            //    tr
+            //        th ID
+            //        td #{EmployeeId}
+            //        th First Name
+            //        td #{FirstName}
+            //        th Last Name
+            //        td #{LastName}
+            //        th Email
+            //        td #{Email}
+            //        th Hire Date
+            //        td #{HireDate}
+            //        th Leader Id
+            //        td #{LeaderId}
+            //        th Role
+            //        td #{Role}
+            //        th Vacation
+            //        td #{PTOVac}
+            //        th Sick
+            //        td #{PTOSick}
+            //        th Personal
+            //        td #{PTOPers}
+        button(onclick='sendJSON()') Send
