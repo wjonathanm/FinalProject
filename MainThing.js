@@ -47,40 +47,20 @@ app.get("/AdminUser", (req, res) => {
     })
 });
 app.get("/", function (req, res){
-    res.render('insertEmp', {
-
+    let sql = 'select EmployeeId, FirstName, LastName, Email, HireDate, LeaderId, Role, PtoBalanceVacation, PtoBalancePersonal, PtoBalanceSick';
+    sql += ' from Employees';
+    con.query( sql, function(err, results ){
+        if ( err) {
+            throw err;
+        } else {
+            console.log( results);
+        }
+        // res.send("It is good");
+        res.render( 'insertEmp', {
+            data : results
+        });
     })
 });
-app.post("/insert", function (req,res){
-    let EmployeeId = req.body.EmployeeId;
-    let FirstName = req.body.FirstName;
-    let LastName = req.body.LastName;
-    let HireDate = req.body.HireDate;
-    let LeaderId = req.body.LeaderId;
-    let Role = req.body.Role;
-    let PTOVac = req.body.PTOVac;
-    let PTOPers = req.body.PTOPers;
-    let PTOSick = req.body.PTOSick;
-
-    let sql = `CREATE TABLE Employees(eid INT, fname VARCHAR(25), lame VARCHAR(25), email VARCHAR(29), HireDate VARCHAR(20), lid INT, role VARCHAR(8), PtoBalanceVacation INT, PtoBalancePersonal INT, PtoBalanceSick INT `;
-    sql += `Insert into Employees(EmployeeId, FirstName, LastName, Email, HireDate, LeaderId, Role, PTOVac, PTOPers, PTOSick)`
-    sql += ` values('${EmployeeId}',`
-    sql += ` '${FirstName}',`
-    sql += ` '${LastName}',`
-    sql += ` '${Email}',`
-    sql += ` '${HireDate}',`
-    sql += ` '${LeaderId}',`
-    sql += ` '${Role}',`
-    sql += ` '${PTOVac}',`
-    sql += ` '${PTOPers}',`
-    sql += ` '${PTOSick}')`
-
-    con.query(sql)
-
-    res.render('/gotStuff', {
-
-    })
-})
 let port = 3000;
 app.listen( port, ()=>{
     console.log(`Listening on http://localhost:${port}`);
