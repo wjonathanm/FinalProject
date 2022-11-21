@@ -1,5 +1,7 @@
 body{
-    background-image: linear-gradient(to right, #FA8214, #C80000);
+    /*background-image: linear-gradient(to right, #FA8214, #C80000);*/
+    /*background-color: whitesmoke;*/
+    background-color: aliceblue;
 }
 h1{
     text-align: center;

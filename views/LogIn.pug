@@ -6,12 +6,12 @@ html
     body
         div.login
             h2.h2 Welcome to Aldi
-            form(action = "/LogIn" method = "Post")
-                label.label User Id:
-                input.input(type='text' value='userId')
+            form(action = "/LogIn" method = "post")
+                label.label(for="userId") User Id:
+                input.input(type="text" name="userId" value="userId")
                 br
-                Label.label Password:
-                input.input(type='text' value='password')
+                Label.label(for="password") Password:
+                input.input(type="password" name="password" value="password")
                 br
-                button.button(type='button' value='submit' onclick='') Submit
+                button.button(type='submit' name="LogIn" value="LogIn") Submit
 
