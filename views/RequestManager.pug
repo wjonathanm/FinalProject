@@ -1,0 +1,51 @@
+doctype html
+html
+    head
+        meta(charset='UTF-8')
+        script(src='/js/EmployeeScript.js')
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+        link(rel="stylesheet" href="/css/ManagerView.css")
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
+
+    body
+        style.
+            button {
+                border-radius: 45px;
+                padding:15px 50px 15px 50px;
+                margin: 15px 225px 5px 225px;
+                background-color: #dddddd;
+                font-size: 13pt;
+            }
+            p {
+                font-size: 25pt;
+            }
+        include html/ManagerNav.html
+        h1 Manager Johnathan Reggis Requests
+        h5 ID: 012345 | Johnathan.Reggis@Aldi.us
+        br
+        h3
+            p Make a Request
+            lable(name="StartDate") Start Date
+            input(placeholder='Start Date: MM/DD/YYYY')
+            input(placeholder='End Date: MM/DD/YYYY')
+            select
+                option --- PTO Type ---
+                option Vacation
+                option (Emergency) Sick
+                option (Emergency) Personal
+            input(placeholder='Reasoning')
+            button Request
+        br
+        h3
+            p Pending Request
+            table
+                tr
+                    th Start Date
+                    th End Date
+                    th PTO Type
+                    th Reasoning
+                tr
+                    td 02/22/2022
+                    td 02/27/2022
+                    td Vacation
+                    td Blah Blah Blah

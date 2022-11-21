@@ -9,7 +9,8 @@ html
 
     body
         include html/ManagerNav.html
-        h1 Manager PTO Info
+        h1 Welcome, Manager Johnathan Reggis
+        h5 ID: 012345 | Johnathan.Reggis@Aldi.us
         br
         h3
             div.row
@@ -17,64 +18,4 @@ html
                     div Days Left: 6/20
                 div.column Total
                     div Days Left: 6/12
-        h1 Request
-        br
-        select
-            option --- Select PTO Type ---
-            option Vacation
-            option (Emergency) Sick
-            option (Emergency) Personal
-        input
-        button(class='btn btn-success' type='button' value='Request' onclick='') Request
-        h1 Change Requests
-        br
-        form(method="get" action="/ChangeManager")
-        h3
-            table.table
-                tr
-                    th Full Name
-                    th ID
-                    th Role
-                    th Supervisor
-                    th Supervisor ID
-                    th Anniversary Date
-                    th Vacation Type
-                    th Days Requested
-                    th Reasoning
-                tr
-                    td Luke Samson
-                    td 0123456
-                    td Employee
-                    td Markus Kathill
-                    td 6789101
-                    td 01/01
-                    td Sick
-                    td 04/06 - 04/9
-                    td
-            button(class='btn btn-success' type='button' value='Request' onclick='') Change Request
-        h1 Accept Requests
-        br
-        form(method="get" action="/AcceptManager")
-        h3
-            table.table
-                tr
-                    th Full Name
-                    th ID
-                    th Role
-                    th Supervisor
-                    th Supervisor ID
-                    th Anniversary Date
-                    th Vacation Type
-                    th Days Requested
-                    th Reasoning
-                tr
-                    td Mike Knull
-                    td 0246810
-                    td Employee
-                    td Nathan Bampell
-                    td 0369113
-                    td 02/14
-                    td Personal
-                    td 06/11 - 06/16
-                    td
-            button(class='btn btn-success' type='button' value='Request' onclick='') Accept Request
+

@@ -44,12 +44,16 @@ app.get("/ManagerPTO", (req,res) => {
     res.render('ManagerPTO',{
     });
 });
-app.get("/ManagerPTO/ChangeManager", (req,res) => {
-    res.render('ChangeManager',{
+app.get("/ManagerPTO/RequestManager", (req,res) => {
+    res.render('RequestManager',{
     });
 });
-app.get("/ManagerPTO/AcceptManager", (req,res) => {
-    res.render('AcceptManager',{
+app.get("/ManagerPTO/WorkersRequestManager", (req,res) => {
+    res.render('WorkersRequestManager',{
+    });
+});
+app.get("/ManagerPTO/PendingRequestManager", (req,res) => {
+    res.render('PendingRequestManager',{
     });
 });
 
