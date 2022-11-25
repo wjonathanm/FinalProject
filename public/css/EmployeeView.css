@@ -56,3 +56,36 @@ h3{
 .table,th,td{
     border: 1px solid black;
 }
+.donut{
+    margin-left: 50px;
+    width: 150px; height: 150px;
+    border-radius: 100px;
+
+    background: conic-gradient(
+    blue 0deg 180deg,
+    red 180deg 360deg
+
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.hole {
+    width: 75px; height: 75px;
+    border-radius: 50%;
+    background: #fff;
+}
+.legend{
+    display: flex;
+    margin-top: 70px;
+    margin-left: 425px;
+}
+.legend div{
+    padding: 1px 2px;
+}
+.segment1{
+    background: red;
+}
+.segment3{
+    background: blue;
+}

@@ -138,14 +138,14 @@ app.post("/LogIn", function (req, res){
     //     }
     // });
 });
-app.get("/EmployeePTO2", (req, res) => {
-    if (req.session.loggedin){
-        res.render('EmployeePTO', {
-        })
-    }else{
-        res.send('Please login to view this page');
-    }
-});
+// app.get("/EmployeePTO2", (req, res) => {
+//     if (req.session.loggedin){
+//         res.render('EmployeePTO', {
+//         })
+//     }else{
+//         res.send('Please login to view this page');
+//     }
+// });
 let port = 3000;
 app.listen( port, ()=>{
     console.log(`Listening on http://localhost:${port}`);
