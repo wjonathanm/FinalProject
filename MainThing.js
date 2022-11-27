@@ -78,7 +78,7 @@ app.get("/AdminUser", (req, res) => {
 // });
 app.post("/LogIn", function (req, res){
     let Uid = req.body.userId;
-    // let Pass = req.body.password;
+    let Pass = req.body.password;
     if ( Uid ){
         let sql = `SELECT * FROM Employees WHERE EmployeeId = "${Uid}"`
         console.log(sql)
@@ -111,6 +111,11 @@ app.post("/LogIn", function (req, res){
     }else{
         res.send('Please Enter An Employee Id and Password');
         res.end();
+        // let sql = `Update Employees Set Password = "${Pass}" Where EmployeeId = "${Uid}"`
+        // con.query(sql);
+        // alert("Refreshing");
+        // res.refresh("/LogIn");
+        // res.end();
     }
     //     con.query('SELECT * FROM Employees WHERE Uid = ?', [Uid], function (error, results, fields){
     //         if (error) throw error;
