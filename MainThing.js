@@ -56,6 +56,18 @@ app.get("/ManagerPTO/PendingRequestManager", (req,res) => {
     res.render('PendingRequestManager',{
     });
 });
+app.get("/ManagerPTO/ResponseManager", (req, res) => {
+    res.render('ResponseManager', {
+    });
+});
+app.get("/ManagerPTO/ResponseEmpManager", (req, res) => {
+    res.render('ResponseEmpManager', {
+    });
+});
+app.get("/ManagerPTO/ResponsePending", (req, res) => {
+    res.render('ResponsePending', {
+    });
+});
 
 app.get("/AdminUser", (req, res) => {
     res.render('AdminUser', {
