@@ -82,12 +82,20 @@ h1{
     text-align: center;
     padding-top: 20px;
 }
+h3{
+    padding-right: 85%;
+    text-align: left;
+    margin: auto;
+    float: left;
+    font-size: 18px;
+}
 h2{
+
     text-align: center;
-    border: 1px solid black;
-    padding:20px 50px 75px 50px;
+    padding:2% 2% 2% 2%;
     font-size: 18pt;
-    margin: 50px 75px 50px 75px;
+
+
 }
 p1{
     text-align: center;
@@ -99,12 +107,7 @@ p1{
     float: left;
     width: 25%;
 }
-h3{
-    padding-right: 70%;
-    text-align: left;
-    text-align: left;
-    margin: auto;
-}
+
 
 
 .row:after {
@@ -129,4 +132,15 @@ h3{
     border: 1px solid #ddd;
     box-sizing: border-box;
     /*display: block;*/
+}
+h4{
+    margin-left: 30%;
+    float:left;
+    text-align: center;
+
+}
+h5{
+    float: right;
+    text-align: center;
+
 }

@@ -61,6 +61,10 @@ app.get("/AdminUser", (req, res) => {
     res.render('AdminUser', {
     })
 });
+app.get("/SetHoliday", (req, res) => {
+    res.render('SetHoliday', {
+    })
+});
 // app.get("/", function (req, res){
 //     let sql = 'select EmployeeId, FirstName, LastName, Email, HireDate, LeaderId, Role, PtoBalanceVacation, PtoBalancePersonal, PtoBalanceSick';
 //     sql += ' from Employees';
