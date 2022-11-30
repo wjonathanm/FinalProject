@@ -14,62 +14,61 @@ html
         each row in info
 
             h2 Welcome #{row.FirstName} #{row.LastName}
-                //table( class='table table-striped' )
-                // each row in info
-                    tr
-                        td=row.FirstName
                 br
                 br
                 div ID: #{row.EmployeeId}
                 div Role: #{row.Role}
                 div Supervisor ID: #{row.LeaderId}
                 div Hire Date: #{row.HireDate}
-        h1 PTO Info
-        h2
-            br
-            div.row
-                div.column Personal
-                    //canvas#myChart(style='width:100%;max-width:600px')
-                    div.donut
-                        div.hole
+            h1 PTO Info
+            h2
+                br
+                div.row
 
-                div.column Sick
+                    div.column Personal
+                        div Days Left/Total: #{row.PtoBalancePersonal}
+                        //canvas#myChart(style='width:100%;max-width:600px')
+                        div.donut
+                            div.hole
 
-                    div.donut
-                        div.hole
+                    div.column Sick
+                        div Days Left/Total: #{row.PtoBalanceSick}
+                        div.donut
+                            div.hole
 
-                div.column Vacation
-                    div.donut
-                        div.hole
+                    div.column Vacation
+                        div Days Left/Total: #{row.PtoBalanceVacation}
+                        div.donut
+                            div.hole
 
-                div.column Total
-                    div.donut
-                        div.hole
+                    div.column Total Left/Total:
+                        div.donut
+                            div.hole
 
-                div.legend
-                    div.segment1
-                        div Used
-                    div.segment3
-                        div Available
-        h1 Active Requests
-        h2
-            br
-            table.table
-                tr
-                    th Date Off
-                    th PTO Type
-                    th Status
-                    th Request Date
-                tr
-                    td 11/10/2022
-                    td Vacation
-                    td Requested
-                    td 10/10/2022
-                tr
-                    td 11/11/2022
-                    td Vacation
-                    td Requested
-                    td 10/10/2022
+                    div.legend
+                        div.segment1
+                            div Used
+                        div.segment3
+                            div Available
+            h1 Active Requests
+            h2
+                br
+                table.table
+                    tr
+                        th Date Off
+                        th PTO Type
+                        th Status
+                        th Request Date
+                    tr
+                        td 11/10/2022
+                        td Vacation
+                        td Requested
+                        td 10/10/2022
+                    tr
+                        td 11/11/2022
+                        td Vacation
+                        td Requested
+                        td 10/10/2022
 
-        h3
-            button.b1(class='btn btn-success' type='button' value='Request' onclick='') Request
+            h3
+                button.b1(class='btn btn-success' type='button' value='Request' onclick='') Request
