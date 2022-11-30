@@ -73,10 +73,25 @@ app.get("/AdminUser", (req, res) => {
     res.render('AdminUser', {
     })
 });
-app.get("/SetHoliday", (req, res) => {
+app.get("/AdminUser/SetHoliday", (req, res) => {
     res.render('SetHoliday', {
     })
 });
+app.get('/AdminUser/SearchBarEmployee', (req, res) => {
+    let sql = `select Employeeid,FirstName,LastName,HireDate`;
+    sql += `from Employees Where Employeeid= ${text}""`;
+    con.query( sql, function(err, results ){
+        if ( err) {
+            throw err;
+        } else {
+            console.log( results);
+        }
+        // res.send("It is good");
+        res.render( 'showEmployeeSearch', {
+            data : results
+        });
+    })
+})
 // app.get("/", function (req, res){
 //     let sql = 'select EmployeeId, FirstName, LastName, Email, HireDate, LeaderId, Role, PtoBalanceVacation, PtoBalancePersonal, PtoBalanceSick';
 //     sql += ' from Employees';

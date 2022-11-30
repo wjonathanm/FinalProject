@@ -1,0 +1,23 @@
+head
+    title Show Employee Search
+    script(type='text/javascript').
+    link(rel="stylesheet" href="/css/AdminView.css")
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    link(rel="stylesheet" href="/css/AdminView.css")
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
+body( onload='checkRefresh()' )
+        include html/Adminnav.html
+        include html/searchbar.html
+        h2 Show Employees
+        span(id='results')
+        form(action = "/AdminUser/SearchBarEmployee", method = "delete")
+            table( class='table table-striped' )
+                each row in data
+                    tr
+                        td=row.Employeeid
+                        td=row.FirstName
+                        td=row.LastName
+                        td=row.HireDate
+                        td
+                            button(class='btn btn-primary' type='button' onClick=`deleteIt(${row.id})`) Delete #{row.id}
+            br
