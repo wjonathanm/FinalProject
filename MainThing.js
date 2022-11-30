@@ -19,6 +19,7 @@ app.use(express.urlencoded({ extended: false})); // access form from the request
 let bodyParser = require('body-parser');
 app.use(bodyParser.json());
 const con = require("./mysql");
+const {SERVER_STATUS_LAST_ROW_SENT} = require("mysql/lib/protocol/constants/server_status");
 // const query = require("express");
 
 // const data = require("./public/data/PTOUserSeedData.json");
@@ -28,9 +29,42 @@ app.get("/LogIn", (req, res) => {
     })
 });
 app.get("/EmployeePTO", (req, res) => {
-    res.render('EmployeePTO', {
+    let Uid=100856;
+    // let Uid = req.body.userId;
+    // console.log(Uid)
+    let sql = `SELECT * FROM Employees WHERE EmployeeId = "${Uid}"`
+    console.log(sql)
+    con.query(sql, function (error, data) {
+        if ( error) {
+            throw error;
+        } else {
+            console.log( data);
+            // req.session.Uid = data[count].Uid;
+        }
+        res.render( 'EmployeePTO', {
+            info : data
+        });
     })
+
 });
+app.post("/EmployeePTO",function (req,res){
+    // let Uid = req.body.userId;
+    // let sql = `SELECT * FROM Employees WHERE EmployeeId = "${Uid}"`
+    // console.log(sql)
+    // con.query(sql, function (error, data) {
+    //     if ( error) {
+    //         throw error;
+    //     } else {
+    //         console.log( data);
+    //         req.session.Uid = data[count].Uid;
+    //     }
+    //
+    // })
+    // res.render( 'EmployeePTO', {
+    //     data : data
+    // });
+
+})
 app.get("/EmployeePTO/Request", (req, res) => {
     res.render('Request', {
     })
