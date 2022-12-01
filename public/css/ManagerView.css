@@ -47,7 +47,7 @@ table, th, td {
     font-size: 12pt;
 }
 .navbar {
-    overflow: hidden;
+    overflow: visible;
 }
 .dropdown a{
     float: left;
@@ -66,12 +66,12 @@ table, th, td {
     display: none;
     position: absolute;
     background-color: #dddddd;
-    min-width: 160px;
+    min-width: 180px;
     z-index: 1;
 }
 .dropdown a {
     float: none;
-    color: #dddddd;
+    color: royalblue;
     text-decoration: none;
     display: block;
     text-align: center;
