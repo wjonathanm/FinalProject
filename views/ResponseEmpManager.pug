@@ -8,9 +8,60 @@ html
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
 
     body
+        style.
+            button {
+                border-radius: 30px;
+                padding: 5px 15px 5px 15px;
+                margin: 2px 15px 2px 15px;
+                background-color: #dddddd;
+                font-size: 11pt;
+            }
         include html/ManagerNav.html
         h1 Manager Johnathan Reggis Employee Responses
         h5 ID: 012345 | Johnathan.Reggis@Aldi.us
         br
         h3
             p Response to Request
+            table
+                tr
+                    th Employee Name
+                    th Start Date
+                    th End Date
+                    th PTO Type
+                    th Reasoning
+                tr
+                    td Jason Mayhum
+                    td 07/11
+                    td 07/13
+                    td Sick
+                    td Caught a minor stomach virus and need time off to recover.
+            table
+                tr
+                    th I see that you are dealing with a sickness but the dates are already taken up by too many employees so I would like to request these days instead if possible.
+                tr
+                    td 07/11 - 07/12
+            br
+            p Response by Jason Mayhum
+            table
+                tr
+                    td I'm sorry but I need these days off in order to get better, while I also have orders from my doctor to take time off to get better.
+                tr
+                    td
+                        table
+                            tr
+                                th Employee Name
+                                th Start Date
+                                th End Date
+                                th PTO Type
+                                th Reasoning
+                            tr
+                                td Jason Mayhum
+                                td 07/11
+                                td 07/13
+                                td Sick
+                                td Caught a minor stomach virus and need time off to recover.
+                            table
+                            tr
+                                th
+                                    button Accept
+                                    button Respond
