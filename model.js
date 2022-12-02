@@ -20,13 +20,26 @@
 // };
 //
 // const User = module.exports = mongoose.model('User', UserSchema);
-const bcrypt = require('bcrypt');
-const saltRounds = 10;
-const plainText = "Hello World";
-bcrypt.genSalt(saltRounds)
-    .then(salt => {
-        bcrypt.hash(plainText, salt)
-            .then(hash => {
-                console.log(hash);
-            });
-    });
+const bcrypt = require("bcrypt")
+const saltRounds = 10
+const password = "Admin@123"
+
+bcrypt
+    .hash(password, saltRounds)
+    .then(hash => {
+        userHash = hash
+        console.log('Hash ', hash)
+        validateUser(hash)
+    })
+    .catch(err => console.error(err.message))
+
+function validateUser(hash) {
+    bcrypt
+        .compare(password, hash)
+        .then(res => {
+            console.log(res) // return true
+            console.log(hash)
+            console.log(password)
+        })
+        .catch(err => console.error(err.message))
+}
