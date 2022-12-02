@@ -1,5 +1,7 @@
 const pug = require('pug');
 const express = require('express');
+const mongoose = require('mongoose');
+const bcrypt = require('bcrypt')
 const session = require('express-session');
 const app = express();
 // const mysql = require('mysql');
