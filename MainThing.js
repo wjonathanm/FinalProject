@@ -128,96 +128,39 @@ app.get('/AdminUser/SearchBarEmployee', (req, res) => {
         });
     })
 })
-// app.get("/", function (req, res){
-//     let sql = 'select EmployeeId, FirstName, LastName, Email, HireDate, LeaderId, Role, PtoBalanceVacation, PtoBalancePersonal, PtoBalanceSick';
-//     sql += ' from Employees';
-//     con.query( sql, function(err, results ){
-//         if ( err) {
-//             throw err;
-//         } else {
-//             console.log( results);
-//         }
-//         // res.send("It is good");
-//         res.render( 'insertEmp', {
-//             data : results
-//         });
-//     })
-// });
-app.post("/LogIn", function (req, res){
-    let Uid = req.body.userId;
-    let Pass = req.body.password;
-    if ( Uid ){
-        let sql = `SELECT * FROM Employees WHERE EmployeeId = "${Uid}"`
-        console.log(sql)
-        con.query(sql, function (error, data){
-            if (data.length > 0){
-                for (var count = 0; count < data.length; count++){
-                    if (data[count].EmployeeId == Uid && data[count].Role == "Employee"){
-                        req.session.Uid = data[count].Uid;
+app.get("/signup", function (req, res ){
+    res.render('signup',{
 
-                        res.redirect("/EmployeePTO");
+    })
+})
+app.post('/signup', function (req, res){
+    let id = req.body.userId;
+    let password = req.body.password;
+    let fname = req.body.firstname;
+    let lname = req.body.lastname;
+    let email = req.body.email;
+    console.log(id);
+    let saltRounds = 10;
+    let hashedPassword = bcrypt.hashSync(password, saltRounds)
+    let sql = `Insert into Employees(EmployeeId, Password,FirstName, LastName, Email,HireDate,LeaderId,Role,PtoBalanceVacation, PtoBalancePersonal, PtoBalanceSick)`
+    sql += `Values('${id}', '${hashedPassword}','${fname}', '${lname}','${email}','2022-12-01', '113582', 'Employee', 10, 3, 5)`
+    con.query(sql)
+    res.redirect('/LogIn')
+})
+app.post('/Login', function (req, res){
+    let id = req.body.userId;
+    let password = req.body.password;
+    let sql = `Select * From Employees Where EmployeeId = '${id}'`
+    con.query(sql,function (err, data){
+        if (!err && data.length){
+            let comp = bcrypt.compareSync(password, data[0].Password);
+            console.log(data[0].Password)
+            console.log(password);
+            console.log(comp);
 
-                    }else if (data[count].EmployeeId == Uid && data[count].Role == "Manager"){
-                        req.session.Uid = data[count].Uid;
-
-                        res.redirect("/ManagerPTO")
-                    }else if (data[count].EmployeeId == Uid && data[count].Role == "Director"){
-                        req.session.Uid = data[count].Uid;
-
-                        res.redirect("/AdminUser")
-                    }else{
-                        res.send("YOU SUCK!!!!")
-                    }
-
-                }
-            }else{
-                res.send('Incorrect EmployeeId')
-            }
-            res.end();
-        })
-    }else{
-        res.send('Please Enter An Employee Id and Password');
-        res.end();
-        // let sql = `Update Employees Set Password = "${Pass}" Where EmployeeId = "${Uid}"`
-        // con.query(sql);
-        // alert("Refreshing");
-        // res.refresh("/LogIn");
-        // res.end();
-    }
-    //     con.query('SELECT * FROM Employees WHERE Uid = ?', [Uid], function (error, results, fields){
-    //         if (error) throw error;
-    //         if (results.length > 0){
-    //             results.session.loggedin = true;
-    //             results.session.Uid = Uid;
-    //             res.redirect('/EmployeePTO2');
-    //         }else{
-    //             res.send('Incorrect UserName');
-    //         }
-    //         res.end();
-    //     })
-    // }else{
-    //     res.send('Please Enter a UserName');
-    //     res.end();
-    // }
-    // let sql = 'SELECT EmployeeId, FirstName, LastName, Email, HireDate, LeaderId, Role, PtoBalanceVacation, PtoBalancePersonal, PtoBalanceSick';
-    // sql += ' FROM Employees';
-    // con.query( sql, function(err, results ) {
-    //     if (err) {
-    //         throw err;
-    //     } else {
-    //         results=JSON.parse(JSON.stringify(results))
-    //         console.log(results)
-    //     }
-    // });
+        }
+    })
 });
-// app.get("/EmployeePTO2", (req, res) => {
-//     if (req.session.loggedin){
-//         res.render('EmployeePTO', {
-//         })
-//     }else{
-//         res.send('Please login to view this page');
-//     }
-// });
 let port = 3000;
 app.listen( port, ()=>{
     console.log(`Listening on http://localhost:${port}`);
