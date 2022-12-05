@@ -76,8 +76,19 @@ app.get("/EmployeePTO/History", (req, res) => {
 });
 
 app.get("/ManagerPTO", (req,res) => {
-    res.render('ManagerPTO',{
-    });
+    let Uid = 503890;
+    let sql = `SELECT * FROM Leader WHERE LeaderId = "${Uid}"`
+    console.log(sql)
+    con.query(sql, function (error, data) {
+        if ( error) {
+            throw error;
+        } else {
+            console.log( data);
+        }
+        res.render( 'ManagerPTO', {
+            info : data
+        });
+    })
 });
 app.get("/ManagerPTO/RequestManager", (req,res) => {
     res.render('RequestManager',{

@@ -20,8 +20,9 @@ html
                 font-size: 25pt;
             }
         include html/ManagerNav.html
-        h1 Manager Johnathan Reggis Requests
-        h5 ID: 012345 | Johnathan.Reggis@Aldi.us
+        each row in info
+        h1 Manager #{row.FirstName} #{row.LastName} Requests
+        h5 ID: #{row.LeaderId} | #{row.Email}
         br
         h3
             p Make a Request
