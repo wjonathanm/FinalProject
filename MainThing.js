@@ -1,5 +1,6 @@
 const pug = require('pug');
 const express = require('express');
+// const mongoose = require('mongoose');
 const bcrypt = require('bcrypt')
 const session = require('express-session');
 const app = express();
@@ -48,22 +49,28 @@ app.get("/EmployeePTO", (req, res) => {
     })
 
 });
-app.post("/EmployeePTO",function (req,res){
-    // let Uid = req.body.userId;
-    // let sql = `SELECT * FROM Employees WHERE EmployeeId = "${Uid}"`
-    // console.log(sql)
-    // con.query(sql, function (error, data) {
-    //     if ( error) {
-    //         throw error;
-    //     } else {
-    //         console.log( data);
-    //         req.session.Uid = data[count].Uid;
-    //     }
-    //
-    // })
-    // res.render( 'EmployeePTO', {
-    //     data : data
-    // });
+app.post("/EmployeePTO/Request",function (req,res){
+    let employeeID="100856";
+    let startDate=req.body.startDate;
+    let endDate=req.body.endDate;
+    // let ptoType=req.body.ptoType;
+    let reason=req.body.Reason;
+
+    let sql = `Insert into RequestForm (EmployeeId, StartDate, EndDate, Reason)`;
+    sql += ` values('${startDate}',`
+    sql += ` '${employeeID}'`
+    sql += ` '${endDate}',`
+    // sql += ` '${ptoType}',`
+    sql += ` '${reason}' )`;
+    console.log(`sql:${sql}`);
+    con.query(sql);
+    res.render( 'EmployeePTO', {
+        startDate: startDate,
+        endDate: endDate,
+        // ptoType:ptoType,
+        reason:reason
+    })
+    console.log(`reason:${reason}`);
 
 })
 app.get("/EmployeePTO/Request", (req, res) => {
@@ -76,19 +83,8 @@ app.get("/EmployeePTO/History", (req, res) => {
 });
 
 app.get("/ManagerPTO", (req,res) => {
-    let Uid = 503890;
-    let sql = `SELECT * FROM Leader WHERE LeaderId = "${Uid}"`
-    console.log(sql)
-    con.query(sql, function (error, data) {
-        if ( error) {
-            throw error;
-        } else {
-            console.log( data);
-        }
-        res.render( 'ManagerPTO', {
-            info : data
-        });
-    })
+    res.render('ManagerPTO',{
+    });
 });
 app.get("/ManagerPTO/RequestManager", (req,res) => {
     res.render('RequestManager',{
@@ -124,8 +120,8 @@ app.get("/AdminUser/SetHoliday", (req, res) => {
     })
 });
 app.get('/AdminUser/SearchBarEmployee', (req, res) => {
-    let text=503890;
-    let sql = `select Employeeid,FirstName,LastName,HireDate from Employees Where Employeeid = "${text}"`
+    let sql = 'select Employeeid,FirstName,LastName,HireDate';
+    sql += ' from Employees Where Employeeid= "Employeeid"';
     console.log("sql=",sql)
     con.query( sql, function(err, results ){
         if ( err) {

@@ -14,24 +14,24 @@ html
             h2
                 br
                 br
-                form(action = "/Request" method = "Post")
+                form(action = "/EmployeePTO/Request" method = "Post")
                     label.label Start Date:
-                    input.input(type='text' value='mm/dd/yyyy')
+                    input.input(type='text' name='startDate' value='startDate')
                     br
                     br
                     Label.label End Date:
-                    input.input(type='text' value='mm/dd/yyyy')
+                    input.input(type='text' name='endDate' value='endDate')
                     br
                     br
                     label.label PTO Type:
                     select(name="ptoType" id="selectPto")
-                        option(value="" selected="selected") Vacation
-                        option(value="" ) Sick
-                        option(value="" ) Personal
+                        option(value="" name='vacation' selected="selected") Vacation
+                        option(value="" name='sick' ) Sick
+                        option(value="" name='personal') Personal
                     br
                     br
                     Label.label Reason:
-                    input.input(type='text' value='Reason')
+                    input.input(type='text' name='reason' value='Reason')
                     br
                     br
-                    button.b2(class='btn btn-success' type='button' value='submit' onclick='') Submit
+                    button.b2(class='btn btn-success' type='submit') Submit
