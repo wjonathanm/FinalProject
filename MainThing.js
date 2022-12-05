@@ -1,6 +1,5 @@
 const pug = require('pug');
 const express = require('express');
-const mongoose = require('mongoose');
 const bcrypt = require('bcrypt')
 const session = require('express-session');
 const app = express();
@@ -114,8 +113,8 @@ app.get("/AdminUser/SetHoliday", (req, res) => {
     })
 });
 app.get('/AdminUser/SearchBarEmployee', (req, res) => {
-    let sql = 'select Employeeid,FirstName,LastName,HireDate';
-    sql += ' from Employees Where Employeeid= "Employeeid"';
+    let text=503890;
+    let sql = `select Employeeid,FirstName,LastName,HireDate from Employees Where Employeeid = "${text}"`
     console.log("sql=",sql)
     con.query( sql, function(err, results ){
         if ( err) {
