@@ -1,9 +1,21 @@
 const pug = require('pug');
 const express = require('express');
-// const mongoose = require('mongoose');
 const bcrypt = require('bcrypt')
+const crypto = require('crypto');
+// const crypto = require('crypto');
+const algorithm = 'aes-256-cbc';
+const key = crypto.randomBytes(32);
+const iv = crypto.randomBytes(16);
+const cipher = crypto.createCipheriv(algorithm, key, iv);
+const decipher = crypto.createDecipheriv(algorithm, key, iv);
 const session = require('express-session');
 const app = express();
+
+// let secret_key = 'fd85b494-aaaa';
+// let encryptionMethod = 'AE5-250-CBC';
+// let secret_iv = 'smslt';
+// let key = Crypto.createHash('sha512').update(secret_key, 'utf-8').digest('hex').substr(0,32);
+// let iv = Crypto.createHash('sha512').update(secret_iv, 'utf-8').digest('hex').substr(0,16);
 // const mysql = require('mysql');
 app.use(express.static('public'));
 
@@ -16,6 +28,7 @@ app.use(session({
 app.set( 'views', 'views');
 app.set( 'view engine', 'pug');
 
+
 app.use(express.urlencoded({ extended: false})); // access form from the request variable inside post method
 
 let bodyParser = require('body-parser');
@@ -26,6 +39,11 @@ const {SERVER_STATUS_LAST_ROW_SENT} = require("mysql/lib/protocol/constants/serv
 
 // const data = require("./public/data/PTOUserSeedData.json");
 
+app.get("/chart", function (req,res){
+    res.render('insertEmp',{
+
+    })
+})
 app.get("/LogIn", (req, res) => {
     res.render('LogIn', {
     })
@@ -147,26 +165,51 @@ app.post('/signup', function (req, res){
     let lname = req.body.lastname;
     let email = req.body.email;
     console.log(id);
-    let saltRounds = 10;
-    let hashedPassword = bcrypt.hashSync(password, saltRounds)
+    // let saltRounds = 10;
+    // let hashedPassword = bcrypt.hashSync(password, saltRounds)
+    let hashedPassword = cipher.update(password, "utf-8", "hex");
+    hashedPassword += cipher.final("hex");
     let sql = `Insert into Employees(EmployeeId, Password,FirstName, LastName, Email,HireDate,LeaderId,Role,PtoBalanceVacation, PtoBalancePersonal, PtoBalanceSick)`
     sql += `Values('${id}', '${hashedPassword}','${fname}', '${lname}','${email}','2022-12-01', '113582', 'Employee', 10, 3, 5)`
     con.query(sql)
     res.redirect('/LogIn')
 })
-app.post('/Login', function (req, res){
-    let id = req.body.userId;
-    let password = req.body.password;
-    let sql = `Select * From Employees Where EmployeeId = '${id}'`
-    con.query(sql,function (err, data){
-        if (!err && data.length){
-            let comp = bcrypt.compareSync(password, data[0].Password);
-            console.log(data[0].Password)
-            console.log(password);
-            console.log(comp);
+app.post("/LogIn", function (req, res) {
+    let Uid = req.body.userId;
+    let Pass = req.body.password;
+    if (Uid) {
+        let sql = `SELECT * FROM Employees WHERE EmployeeId = "${Uid}"`
+        console.log(sql)
+        con.query(sql, function (error, data) {
+            if (data.length > 0) {
+                for (var count = 0; count < data.length; count++) {
+                    if (data[count].EmployeeId == Uid && data[count].Role == "Employee") {
+                        req.session.Uid = data[count].Uid;
 
-        }
-    })
+                        res.redirect("/EmployeePTO");
+
+                    } else if (data[count].EmployeeId == Uid && data[count].Role == "Manager") {
+                        req.session.Uid = data[count].Uid;
+
+                        res.redirect("/ManagerPTO")
+                    } else if (data[count].EmployeeId == Uid && data[count].Role == "Director") {
+                        req.session.Uid = data[count].Uid;
+
+                        res.redirect("/AdminUser")
+                    } else {
+                        res.send("YOU SUCK!!!!")
+                    }
+
+                }
+            } else {
+                res.send('Incorrect EmployeeId')
+            }
+            res.end();
+        })
+    } else {
+        res.send('Please Enter An Employee Id and Password');
+        res.end();
+    }
 });
 let port = 3000;
 app.listen( port, ()=>{

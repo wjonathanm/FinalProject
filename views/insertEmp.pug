@@ -1,64 +1,104 @@
-head
-    title Form Tester
-    //script(type='text/javascript').
-    //    function sendJSON() {
-    //        fetch("./data/PTOUserSeedData.json", {
-    //            method: 'POST',
-    //            action: '/insert',
-    //            headers: {
-    //                'Accept': 'application/json',
-    //                'Content-Type': 'application/json'
-    //            }
-    //            // .then(response => response.json())
-    //            .then(data => {
-    //                for (let i = 0; i < data.length; i++) {
-    //                    let EmployeeId = data[i].EmployeeId;
-    //                    let FirstName = data[i].FirstName;
-    //                    let LastName = data[i].LastName;
-    //                    let Email = data[i].Email;
-    //                    let HireDate = data[i].HireDate;
-    //                    let LeaderID = data[i].LeaderId;
-    //                    let Role = data[i].Role;
-    //                    let PTOVac = data[i].PtoBalance.Vacation;
-    //                    let PTOSick = data[i].PtoBalance.Sick;
-    //                    let PTOPers = data[i].PtoBalance.Personal;
-    //                    console.log(EmployeeId, FirstName, LastName, Email, HireDate, LeaderID, Role, PTOVac, PTOSick, PTOPers);
-    //                }
-    //            })
-    //        })
-    //         fetch("./data/PTOUserSeedData.json")
-    //             .then(response => {
-    //                 return response.json();
-    //             })
-    //             .then(data => {
-    //                 for (let i = 0; i < data.length; i++) {
-    //                     let EmployeeId = data[i].EmployeeId;
-    //                     let FirstName = data[i].FirstName;
-    //                     let LastName = data[i].LastName;
-    //                     let Email = data[i].Email;
-    //                     let HireDate = data[i].HireDate;
-    //                     let LeaderID = data[i].LeaderId;
-    //                     let Role = data[i].Role;
-    //                     let PTOVac = data[i].PtoBalance.Vacation;
-    //                     let PTOSick = data[i].PtoBalance.Sick;
-    //                     let PTOPers = data[i].PtoBalance.Personal;
-    //                     console.log(EmployeeId, FirstName, LastName, Email, HireDate, LeaderID, Role, PTOVac, PTOSick, PTOPers);
-    //                 }
-    //             })
-    //    }
-body
-    div
-        h1 Send JSON to Node
-            table( class='table table-striped' )
-                each row in data
-                    tr
-                        td=row.EmployeeId
-                        td=row.FirstName
-                        td=row.LastName
-                        td=row.email
-                        td=row.HireDate
-                        td=row.LeaderId
-                        td=row.Role
-                        td=row.PtoBalanceVacation
-                        td=row.PtoBalancePersonal
-                        td=row.PtoBalanceSick
+doctype html
+html
+    head
+        meta(charset='UTF-8')
+        title Title
+        script(src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js')
+        link(rel="stylesheet" href="/css/doughnut.css")
+    body
+        div(class="main container-fluid text-center")
+            div(class="choices")
+                h2
+                p I'm voting for:
+                select(class="form-control")
+                    option 1
+                    option 2
+                    option 3
+                    option 4
+                    option 5
+            div(class="chart")
+                canvas(id="chartPic" width="10px" height="10px")
+                    script(src="chart.js")
+                    script.
+                        window.onload = function () {
+                            var red = "#{red}", green = "#{green}", blue = "#{blue}";
+                            var ctx = document.getElementById("chartPic").getContext('2d');
+                            var chart = new Chart(ctx, {
+                                type: 'doughnut',
+                                data: {
+                                    labels: ["red", "green", "blue"],
+                                    datasets: [{
+                                        label: 'Number of votes',
+                                        data: [1, 1, 1],
+                                        backgroundColor: ["red", "green", "blue"],
+                                        borderColor: ["green", "blue", "red"],
+                                        borderWidth: 1
+                                    }],
+                                },
+                                options: {
+                                    title: {
+                                        display: true,
+                                        text: "chart",
+                                },
+                                legend: {
+                                    position: 'bottom'
+                                },
+                            }
+                        });
+                        };
+
+//body
+//    h2 Hello World
+//    .chart-container
+//        canvas#chartPic
+//        script("text/javascript").
+//            let xValues = ["Italy", "France", "Spain", "USA", "Argentina"];
+//            let yValues = [55, 49, 44, 24, 15]
+//            let barColors = [
+//                "#b91d47",
+//                "#00aba9",
+//                "#2b5797",
+//                "#e8c3b9",
+//                "#1e7145"
+//            ];
+//            let chart = new Chart("myChart", {
+//                type: "doughnut",
+//                data: {
+//                    labels: xValues,
+//                    datasets: [{
+//                        backgroundColor: barColors,
+//                        data: yValues
+//                    }]
+//                },
+//                options: {
+//                    title: {
+//                        display: true,
+//                        text: "World Wide Wine Production 2018"
+//                    }
+//                }
+//            });
+            // let doughnutData = [
+            //     {
+            //         value: 30,
+            //         color: "#F7464A"
+            //     },
+            //     {
+            //         value: 50,
+            //         color: "#46BFBD"
+            //     },
+            //     {
+            //         value: 100,
+            //         color: "#FDB45C"
+            //     },
+            //     {
+            //         value: 40,
+            //         color: "#949FB1"
+            //     },
+            //     {
+            //         value: 120,
+            //         color: "#4D5360"
+            //     }
+            //
+            // ];
+            // let myDoughnut = new Chart(document.getElementById("myChart").getContect("2d").Doughnut(doughnutData))
+

@@ -1,0 +1,25 @@
+doctype html
+html
+    head
+        meta(charset='UTF-8')
+        link(rel="stylesheet" href="/css/myStyles.css")
+    body
+        div.login2
+            h2.h22 Enter Info
+            form(action = "/signup" method = "post")
+                label.label2(for="userId") User Id:
+                input.input2(type="userId" name="userId" value="userId")
+                br
+                Label.label2(for="password") Password:
+                input.input2(type="password" name="password" value="password")
+                br
+                Label.label2(for="FirstName") First Name:
+                input.input2(type="firstname" name="firstname" value="firstname")
+                br
+                Label.label2(for="LastName") Last Name:
+                input.input2(type="lastname" name="lastname" value="lastname")
+                br
+                Label.label2(for="Email") Email:
+                input.input2(type="email" name="email" value="email")
+
+                button.button2(type='submit' name="signup" value="signup" onclick="location.href = '/LogIn'") Submit
