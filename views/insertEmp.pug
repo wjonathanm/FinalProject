@@ -6,46 +6,124 @@ html
         script(src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js')
         link(rel="stylesheet" href="/css/doughnut.css")
     body
-        div(class="main container-fluid text-center")
-            div(class="choices")
-                h2
-                p I'm voting for:
-                select(class="form-control")
-                    option 1
-                    option 2
-                    option 3
-                    option 4
-                    option 5
-            div(class="chart")
-                canvas(id="chartPic" width="10px" height="10px")
-                    script(src="chart.js")
-                    script.
-                        window.onload = function () {
-                            var red = "#{red}", green = "#{green}", blue = "#{blue}";
-                            var ctx = document.getElementById("chartPic").getContext('2d');
-                            var chart = new Chart(ctx, {
-                                type: 'doughnut',
-                                data: {
-                                    labels: ["red", "green", "blue"],
-                                    datasets: [{
-                                        label: 'Number of votes',
-                                        data: [1, 1, 1],
-                                        backgroundColor: ["red", "green", "blue"],
-                                        borderColor: ["green", "blue", "red"],
-                                        borderWidth: 1
-                                    }],
-                                },
-                                options: {
-                                    title: {
-                                        display: true,
-                                        text: "chart",
-                                },
-                                legend: {
-                                    position: 'bottom'
-                                },
-                            }
-                        });
-                        };
+        h2
+            div.row
+                div.column Sick
+                    div.chart
+                        canvas(id="chart1" width="10px" height="10px")
+                            script.
+                                window.onload = function () {
+                                    var red = "#{red}", green = "#{green}", blue = "#{blue}";
+                                    var ctx = document.getElementById("chart1").getContext('2d');
+                                    var chart = new Chart(ctx, {
+                                        type: 'doughnut',
+                                        data: {
+                                            labels: ["red", "green", "blue"],
+                                            datasets: [{
+                                                label: 'Number of votes',
+                                                data: [1, 1, 1],
+                                                backgroundColor: ["red", "green", "blue"],
+                                                borderColor: ["green", "blue", "red"],
+                                                borderWidth: 1
+                                            }],
+                                        },
+                                        options: {
+                                            title: {
+                                                display: true,
+                                                text: "chart",
+                                        },
+                                        legend: {
+                                            position: 'bottom'
+                                        },
+                                    }
+                                });
+                                };
+
+                div.column Personal
+                    div.chart
+                        canvas(id="chart2" width="10px" height="10px")
+                            script.
+                                var red = "#{red}", green = "#{green}", blue = "#{blue}";
+                                var ctx = document.getElementById("chart2").getContext('2d');
+                                var chart = new Chart(ctx, {
+                                    type: 'doughnut',
+                                    data: {
+                                        labels: ["red", "green", "blue"],
+                                        datasets: [{
+                                            label: 'Number of votes',
+                                            data: [1, 1, 1],
+                                            backgroundColor: ["red", "green", "blue"],
+                                            borderColor: ["green", "blue", "red"],
+                                            borderWidth: 1
+                                        }],
+                                    },
+                                    options: {
+                                        title: {
+                                            display: true,
+                                            text: "chart",
+                                        },
+                                        legend: {
+                                            position: 'bottom'
+                                        },
+                                    }
+                                });
+                div.column Personal
+                    div.chart
+                        canvas(id="chart3" width="10px" height="10px")
+                            script.
+                                var red = "#{red}", green = "#{green}", blue = "#{blue}";
+                                var ctx = document.getElementById("chart3").getContext('2d');
+                                var chart = new Chart(ctx, {
+                                    type: 'doughnut',
+                                    data: {
+                                        labels: ["red", "green", "blue"],
+                                        datasets: [{
+                                            label: 'Number of votes',
+                                            data: [1, 1, 1],
+                                            backgroundColor: ["red", "green", "blue"],
+                                            borderColor: ["green", "blue", "red"],
+                                            borderWidth: 1
+                                        }],
+                                    },
+                                    options: {
+                                        title: {
+                                            display: true,
+                                            text: "chart",
+                                        },
+                                        legend: {
+                                            position: 'bottom'
+                                        },
+                                    }
+                                });
+
+                div.column Personal
+                    div.chart
+                        canvas(id="chart4" width="10px" height="10px")
+                            script.
+                                var red = "#{red}", green = "#{green}", blue = "#{blue}";
+                                var ctx = document.getElementById("chart4").getContext('2d');
+                                var chart = new Chart(ctx, {
+                                    type: 'doughnut',
+                                    data: {
+                                        labels: ["red", "green", "blue"],
+                                        datasets: [{
+                                            label: 'Number of votes',
+                                            data: [1, 1, 1],
+                                            backgroundColor: ["red", "green", "blue"],
+                                            borderColor: ["green", "blue", "red"],
+                                            borderWidth: 1
+                                        }],
+                                    },
+                                    options: {
+                                        title: {
+                                            display: true,
+                                            text: "chart",
+                                        },
+                                        legend: {
+                                            position: 'bottom'
+                                        },
+                                    }
+                                });
 
 //body
 //    h2 Hello World

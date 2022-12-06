@@ -1,4 +1,23 @@
+/*h2{*/
+/*    text-align: center;*/
+/*    border-radius: 25px;*/
+/*    !*border: 1px solid black;*!*/
+/*    padding:20px 50px 75px 50px;*/
+/*    font-size: 18pt;*/
+/*    margin: 25px 200px 25px 200px;*/
+/*    !*background-image: linear-gradient(to right, #00B4DC , #4169B9, #001E78);*!*/
+/*    background-color: #dddddd;*/
+/*}*/
+/*.row:after {*/
+/*    content: "";*/
+/*    display: table;*/
+/*    clear: both;*/
+/*}*/
+/*.column {*/
+/*    float: left;*/
+/*    width: 25%;*/
+/*}*/
 .chart{
-    width: auto;
-    height: auto;
+    width: 200px;
+    height: 200px;
 }
