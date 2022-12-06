@@ -101,8 +101,21 @@ app.get("/EmployeePTO/History", (req, res) => {
 });
 
 app.get("/ManagerPTO", (req,res) => {
-    res.render('ManagerPTO',{
-    });
+    let Mid=465217;
+
+    let sql = `SELECT * FROM Leader WHERE LeaderId = "${Mid}"`
+    console.log(sql)
+    con.query(sql, function (error, data) {
+        if ( error) {
+            throw error;
+        } else {
+            console.log( data);
+        }
+        res.render( 'ManagerPTO', {
+            info : data
+        });
+    })
+
 });
 app.get("/ManagerPTO/RequestManager", (req,res) => {
     res.render('RequestManager',{
