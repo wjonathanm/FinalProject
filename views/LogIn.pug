@@ -6,7 +6,7 @@ html
     body
         div.login
             h2.h2 Welcome to Aldi
-            form(action = "/LogIn" method = "post")
+            form(action = "/LogIn" name = "myForm" method = "post")
                 label.label(for="userId") User Id:
                 input.input(type="text" name="userId" value="userId")
                 br

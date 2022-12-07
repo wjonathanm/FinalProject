@@ -45,11 +45,6 @@ html
         //canvas#myChart(style='width:100%;max-width:600px')
         //
         each row in info
-            script.
-                var sick = #{row.PtoBalanceSick}
-                var personal = #{row.PtoBalancePersonal}
-                var vacation = #{row.PtoBalanceVacation}
-                var totalDays = sick + personal + vacation
             h2 Welcome #{row.FirstName} #{row.LastName}
                 br
                 br
@@ -72,12 +67,12 @@ html
                                         var chart = new Chart(ctx, {
                                             type: 'doughnut',
                                             data: {
-                                                labels: ["red", "green", "blue"],
+                                                labels: ["available", "used"],
                                                 datasets: [{
                                                     label: 'Number of votes',
-                                                    data: [#{row.PtoBalancePersonal},1,1],
-                                                    backgroundColor: ["red", "green", "blue"],
-                                                    borderColor: ["green", "blue", "red"],
+                                                    data: [#{row.PtoBalancePersonal},1],
+                                                    backgroundColor: ["green", "red"],
+                                                    borderColor: ["black", "black", "black"],
                                                     borderWidth: 1
                                                 }],
                                             },
@@ -103,12 +98,12 @@ html
                                         var chart = new Chart(ctx, {
                                             type: 'doughnut',
                                             data: {
-                                                labels: ["red", "green", "blue"],
+                                                labels: ["available", "used"],
                                                 datasets: [{
                                                     label: 'Number of votes',
-                                                    data: [#{row.PtoBalanceSick}, 1, 1],
-                                                    backgroundColor: ["red", "green", "blue"],
-                                                    borderColor: ["green", "blue", "red"],
+                                                    data: [#{row.PtoBalanceSick}, 1],
+                                                    backgroundColor: ["green", "red"],
+                                                    borderColor: ["black", "black", "black"],
                                                     borderWidth: 1
                                                 }],
                                             },
@@ -135,12 +130,12 @@ html
                                         var chart = new Chart(ctx, {
                                             type: 'doughnut',
                                             data: {
-                                                labels: ["red", "green", "blue"],
+                                                labels: ["available", "used"],
                                                 datasets: [{
                                                     label: 'Number of votes',
-                                                    data: [#{row.PtoBalanceVacation}, 1, 1],
-                                                    backgroundColor: ["red", "green", "blue"],
-                                                    borderColor: ["green", "blue", "red"],
+                                                    data: [#{row.PtoBalanceVacation}, 1],
+                                                    backgroundColor: ["green", "red"],
+                                                    borderColor: ["black", "black", "black"],
                                                     borderWidth: 1
                                                 }],
                                             },
@@ -157,34 +152,33 @@ html
 
 
                     div.column Total:
-                        div Total left: #{totalDays}
-                            div.chart
-                                canvas(id="chart4" width="10px" height="10px")
-                                    script.
-                                        var red = "#{red}", green = "#{green}", blue = "#{blue}";
-                                        var ctx = document.getElementById("chart4").getContext('2d');
-                                        var chart = new Chart(ctx, {
-                                            type: 'doughnut',
-                                            data: {
-                                                labels: ["red", "green", "blue"],
-                                                datasets: [{
-                                                    label: 'Number of votes',
-                                                    data: [#{totalDays}, 1, 1],
-                                                    backgroundColor: ["red", "green", "blue"],
-                                                    borderColor: ["green", "blue", "red"],
-                                                    borderWidth: 1
-                                                }],
+                        div.chart
+                            canvas(id="chart4" width="10px" height="10px")
+                                script.
+                                    var red = "#{red}", green = "#{green}", blue = "#{blue}";
+                                    var ctx = document.getElementById("chart4").getContext('2d');
+                                    var chart = new Chart(ctx, {
+                                        type: 'doughnut',
+                                        data: {
+                                            labels: ["Sick", "Personal", "Vacation"],
+                                            datasets: [{
+                                                label: 'Number of votes',
+                                                data: [#{row.PtoBalanceSick}, #{row.PtoBalancePersonal}, #{row.PtoBalanceVacation}],
+                                                backgroundColor: ["red", "green", "blue"],
+                                                borderColor: ["black", "black", "black"],
+                                                borderWidth: 1
+                                            }],
+                                        },
+                                        options: {
+                                            title: {
+                                                display: true,
+                                                text: "chart",
                                             },
-                                            options: {
-                                                title: {
-                                                    display: true,
-                                                    text: "chart",
-                                                },
-                                                legend: {
-                                                    position: 'bottom'
-                                                },
-                                            }
-                                        });
+                                            legend: {
+                                                position: 'bottom'
+                                            },
+                                        }
+                                    });
 
             h1 Active Requests
             h2
