@@ -66,6 +66,7 @@ app.get("/EmployeePTO", (req, res) => {
     // console.log(Uid)
     let Uid = req.session.Uid;
     let sql = `SELECT * FROM Employees WHERE EmployeeId = "${Uid}"`
+    //SELECT * FROM Employees s, PTOBalance p WHERE p.Role=s.Role and p.Role="Employee" and NumberOfYears="15"
     console.log(sql)
     con.query(sql, function (error, data) {
         if ( error) {
@@ -76,12 +77,14 @@ app.get("/EmployeePTO", (req, res) => {
         }
         res.render( 'EmployeePTO', {
             info : data
+
         });
     })
 
 });
 app.post("/EmployeePTO/Request",function (req,res){
-    let employeeID="100856";
+    let employeeID=req.session.Uid;
+    //let employeeID="100856";
     let startDate=req.body.startDate;
     let endDate=req.body.endDate;
     // let ptoType=req.body.ptoType;
