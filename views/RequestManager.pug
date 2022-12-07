@@ -21,32 +21,32 @@ html
             }
         include html/ManagerNav.html
         each row in info
-        h1 Manager #{row.FirstName} #{row.LastName} Requests
-        h5 ID: #{row.LeaderId} | #{row.Email}
-        br
-        h3
-            p Make a Request
-            lable(name="StartDate") Start Date
-            input(placeholder='Start Date: MM/DD/YYYY')
-            input(placeholder='End Date: MM/DD/YYYY')
-            select
-                option --- PTO Type ---
-                option Vacation
-                option (Emergency) Sick
-                option (Emergency) Personal
-            input(placeholder='Reasoning')
-            button Request
-        br
-        h3
-            p Pending Request
-            table
-                tr
-                    th Start Date
-                    th End Date
-                    th PTO Type
-                    th Reasoning
-                tr
-                    td 02/22/2022
-                    td 02/27/2022
-                    td Vacation
-                    td Blah Blah Blah
+            h1 Manager #{row.FirstName} #{row.LastName} Requests
+            h5 ID: #{row.LeaderId} | #{row.Email}
+            br
+            h3
+                p Make a Request
+                lable(name="StartDate") Start Date
+                input(placeholder='Start Date: MM/DD/YYYY')
+                input(placeholder='End Date: MM/DD/YYYY')
+                select
+                    option --- PTO Type ---
+                    option Vacation
+                    option (Emergency) Sick
+                    option (Emergency) Personal
+                input(placeholder='Reasoning')
+                button Request
+            br
+            h3
+                p Pending Request
+                table
+                    tr
+                        th Start Date
+                        th End Date
+                        th PTO Type
+                        th Reasoning
+                    tr
+                        td 02/22/2022
+                        td 02/27/2022
+                        td Vacation
+                        td Blah Blah Blah

@@ -18,51 +18,51 @@ html
             }
         include html/ManagerNav.html
         each row in info
-        h1 Manager #{row.FirstName} #{row.LastName} Employee Responses
-        h5 ID: #{row.LeaderId} | #{row.Email}
-        br
-        h3
-            p Response to Request
-            table
-                tr
-                    th Employee Name
-                    th Start Date
-                    th End Date
-                    th PTO Type
-                    th Reasoning
-                tr
-                    td Jason Mayhum
-                    td 07/11
-                    td 07/13
-                    td Sick
-                    td Caught a minor stomach virus and need time off to recover.
-            table
-                tr
-                    th I see that you are dealing with a sickness but the dates are already taken up by too many employees so I would like to request these days instead if possible.
-                tr
-                    td 07/11 - 07/12
+            h1 Manager #{row.FirstName} #{row.LastName} Employee Responses
+            h5 ID: #{row.LeaderId} | #{row.Email}
             br
-            p Response by Jason Mayhum
-            table
-                tr
-                    td I'm sorry but I need these days off in order to get better, while I also have orders from my doctor to take time off to get better.
-                tr
-                    td
-                        table
-                            tr
-                                th Employee Name
-                                th Start Date
-                                th End Date
-                                th PTO Type
-                                th Reasoning
-                            tr
-                                td Jason Mayhum
-                                td 07/11
-                                td 07/13
-                                td Sick
-                                td Caught a minor stomach virus and need time off to recover.
+            h3
+                p Response to Request
+                table
+                    tr
+                        th Employee Name
+                        th Start Date
+                        th End Date
+                        th PTO Type
+                        th Reasoning
+                    tr
+                        td Jason Mayhum
+                        td 07/11
+                        td 07/13
+                        td Sick
+                        td Caught a minor stomach virus and need time off to recover.
+                table
+                    tr
+                        th I see that you are dealing with a sickness but the dates are already taken up by too many employees so I would like to request these days instead if possible.
+                    tr
+                        td 07/11 - 07/12
+                br
+                p Response by Jason Mayhum
+                table
+                    tr
+                        td I'm sorry but I need these days off in order to get better, while I also have orders from my doctor to take time off to get better.
+                    tr
+                        td
                             table
-                            tr
-                                th
-                                    button Accept
-                                    button Respond
+                                tr
+                                    th Employee Name
+                                    th Start Date
+                                    th End Date
+                                    th PTO Type
+                                    th Reasoning
+                                tr
+                                    td Jason Mayhum
+                                    td 07/11
+                                    td 07/13
+                                    td Sick
+                                    td Caught a minor stomach virus and need time off to recover.
+                                table
+                                tr
+                                    th
+                                        button Accept
+                                        button Respond
