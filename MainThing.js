@@ -152,7 +152,7 @@ app.get("/AdminUser/SetHoliday", (req, res) => {
 });
 app.get('/AdminUser/SearchBarEmployee', (req, res) => {
     let sql = 'select Employeeid,FirstName,LastName,HireDate';
-    sql += ' from Employees Where Employeeid= "Employeeid"';
+    sql += ' from Employees Where Employeeid= Employeeid';
     console.log("sql=",sql)
     con.query( sql, function(err, results ){
         if ( err) {
