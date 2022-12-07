@@ -65,7 +65,8 @@ app.get("/EmployeePTO", (req, res) => {
     // let Uid = req.body.userId;
     // console.log(Uid)
     let Uid = req.session.Uid;
-    let sql = `SELECT * FROM Employees WHERE EmployeeId = "${Uid}"`
+    // let sql = `SELECT * FROM Employees WHERE EmployeeId = "${Uid}"`
+    let sql = `SELECT * From Employees e JOIN RequestForm r ON (e.EmployeeId = r.EmployeeId) Where e.EmployeeId = "${Uid}"`
     console.log(sql)
     con.query(sql, function (error, data) {
         if ( error) {
@@ -81,27 +82,23 @@ app.get("/EmployeePTO", (req, res) => {
 
 });
 app.post("/EmployeePTO/Request",function (req,res){
-    let employeeID="100856";
+    let employeeID = req.session.Uid;
     let startDate=req.body.startDate;
     let endDate=req.body.endDate;
-    // let ptoType=req.body.ptoType;
-    let reason=req.body.Reason;
+    let ptoType=req.body.ptoType;
+    let reason = req.body.reason;
 
-    let sql = `Insert into RequestForm (EmployeeId, StartDate, EndDate, Reason)`;
-    sql += ` values('${startDate}',`
-    sql += ` '${employeeID}'`
-    sql += ` '${endDate}',`
-    // sql += ` '${ptoType}',`
-    sql += ` '${reason}' )`;
+    let sql = `Insert into RequestForm (EmployeeId, LeaderId, StartDate, EndDate, PtoType, Reason)`;
+    sql += `Value('${employeeID}', '465217', '${startDate}','${endDate}', '${ptoType}', '${reason}')`
     console.log(`sql:${sql}`);
     con.query(sql);
-    res.render( 'EmployeePTO', {
-        startDate: startDate,
-        endDate: endDate,
-        // ptoType:ptoType,
-        reason:reason
-    })
-    console.log(`reason:${reason}`);
+    // res.render( 'EmployeePTO', {
+    //     // startDate : startDate,
+    //     // endDate : endDate,
+    //     // ptoType : ptoType,
+    //     // reason : reason
+    // })
+    // console.log(`reason:${reason}`);
 
 })
 app.get("/EmployeePTO/Request", (req, res) => {
@@ -215,37 +212,20 @@ app.post("/LogIn", function (req, res) {
                         console.log(req.session.Uid)
 
                         res.redirect("/EmployeePTO");
-                        // let id = data[count].EmployeeId;
-                        // let role = data[count].Role;
-                        // let fname = data[count].FirstName;
-                        // let lname = data[count].LastName;
-                        // let lid = data[count].LeaderId;
-                        // let hire = data[count].HireDate;
-                        // let sick = data[count].PtoBalanceSick;
-                        // let personal = data[count].PtoBalancePersonal;
-                        // let vacation = data[count].PtoBalanceVacation;
-                        // res.render('insertEmp', {
-                        //     id : id,
-                        //     role : role,
-                        //     fname : fname,
-                        //     lname : lname,
-                        //     lid : lid,
-                        //     hire : hire,
-                        //     sick : sick,
-                        //     personal : personal,
-                        //     vacation : vacation,
-                        //
-                        // })
                     } else if (data[count].EmployeeId == Uid && data[count].Role == "Manager") {
-                        req.session.Uid = data[count].Uid;
+                        req.session.loggedin = true;
+                        req.session.Uid = Uid;
+                        console.log(req.session.Uid)
 
                         res.redirect("/ManagerPTO")
                     } else if (data[count].EmployeeId == Uid && data[count].Role == "Director") {
-                        req.session.Uid = data[count].Uid;
+                        req.session.loggedin = true;
+                        req.session.Uid = Uid;
+                        console.log(req.session.Uid)
 
                         res.redirect("/AdminUser")
                     } else {
-                        res.send("YOU SUCK!!!!")
+                        res.send("That Didn't work!!!!")
                     }
 
                 }

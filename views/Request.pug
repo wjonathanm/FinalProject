@@ -25,13 +25,13 @@ html
                     br
                     label.label PTO Type:
                     select(name="ptoType" id="selectPto")
-                        option(value="" name='vacation' selected="selected") Vacation
-                        option(value="" name='sick' ) Sick
-                        option(value="" name='personal') Personal
+                        option(value="vacation" name='vacation' selected="selected") Vacation
+                        option(value="sick" name='sick' ) Sick
+                        option(value="personal" name='personal') Personal
                     br
                     br
                     Label.label Reason:
-                    input.input(type='text' name='reason' value='Reason')
+                    textarea.input( name='reason' rows="4" cols="50")
                     br
                     br
                     button.b2(class='btn btn-success' type='submit') Submit

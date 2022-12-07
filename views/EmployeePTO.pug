@@ -190,15 +190,10 @@ html
                         th Status
                         th Request Date
                     tr
-                        td 11/10/2022
-                        td Vacation
+                        td #{row.StartDate}
+                        td #{row.ptoType}
                         td Requested
-                        td 10/10/2022
-                    tr
-                        td 11/11/2022
-                        td Vacation
-                        td Requested
-                        td 10/10/2022
+                        td #{row.RequestDate}
 
-            h3
-                button.b1(class='btn btn-success' type='button' value='Request' onclick='/EmployeePTO/Request') Request
+                h3
+                    button.b1(class='btn btn-success' type='button' value='Request' onclick='/EmployeePTO') Request
