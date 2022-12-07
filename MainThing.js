@@ -1,14 +1,14 @@
 const pug = require('pug');
 const express = require('express');
-const bcrypt = require('bcrypt')
-const crypto = require('crypto');
+// const bcrypt = require('bcrypt')
+// const crypto = require('crypto');
 const url = require('url');
 // const crypto = require('crypto');
-const algorithm = 'aes-256-cbc';
-const key = crypto.randomBytes(32);
-const iv = crypto.randomBytes(16);
-const cipher = crypto.createCipheriv(algorithm, key, iv);
-const decipher = crypto.createDecipheriv(algorithm, key, iv);
+// const algorithm = 'aes-256-cbc';
+// const key = crypto.randomBytes(32);
+// const iv = crypto.randomBytes(16);
+// const cipher = crypto.createCipheriv(algorithm, key, iv);
+// const decipher = crypto.createDecipheriv(algorithm, key, iv);
 const session = require('express-session');
 const app = express();
 

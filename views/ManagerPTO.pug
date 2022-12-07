@@ -11,43 +11,108 @@ html
     body
         include html/ManagerNav.html
         each row in info
-        h1 Welcome, Manager #{row.FirstName} #{row.LastName}
-        h5 ID: #{row.LeaderId} | #{row.Email}
-        br
-        h3
-            div.row
-                    div.column Vacation
-                    div Days Left/Total: #{row.PtoBalanceVacation}
+            h1 Welcome, Manager #{row.FirstName} #{row.LastName}
+            h5 ID: #{row.LeaderId} | #{row.Email}
+            br
+            h2
+                br
+                div.row
+                    div.column Personal
+                        div Days Left/Total: #{row.PtoBalancePersonal}
                         div.chart
-                            canvas(id="chart3" width="10px" height="10px")
+                            canvas(id="chart1" width="10px" height="10px")
                                 script.
-                                    var red = "#{red}", green = "#{green}", blue = "#{blue}";
-                                    var ctx = document.getElementById("chart3").getContext('2d');
-                                    var chart = new Chart(ctx, {
-                                        type: 'doughnut',
-                                        data: {
-                                            labels: ["red", "green", "blue"],
-                                            datasets: [{
-                                                label: 'Number of votes',
-                                                data: [#{row.PtoBalanceVacation}, 1, 1],
-                                                backgroundColor: ["red", "green", "blue"],
-                                                borderColor: ["green", "blue", "red"],
-                                                borderWidth: 1
-                                            }],
-                                        },
-                                        options: {
-                                            title: {
-                                                display: true,
-                                                text: "chart",
+                                    window.onload = function () {
+                                        var red = "#{red}", green = "#{green}", blue = "#{blue}";
+                                        var ctx = document.getElementById("chart1").getContext('2d');
+                                        var chart = new Chart(ctx, {
+                                            type: 'doughnut',
+                                            data: {
+                                                labels: ["available", "used"],
+                                                datasets: [{
+                                                    label: 'Number of votes',
+                                                    data: [#{row.PtoBalancePersonal}, 1],
+                                                    backgroundColor: ["green", "red"],
+                                                    borderColor: ["black", "black", "black"],
+                                                    borderWidth: 1
+                                                }],
                                             },
-                                            legend: {
-                                                position: 'bottom'
-                                            },
-                                        }
-                                    });
+                                            options: {
+                                                title: {
+                                                    display: true,
+                                                    text: "chart",
+                                                },
+                                                legend: {
+                                                    position: 'bottom'
+                                                },
+                                            }
+                                        });
+                                    };
 
-                div.column Total:
-                    div Total left: #{totalDays}
+                    div.column Sick
+                        div Days Left/Total: #{row.PtoBalanceSick}
+                            div.chart
+                                canvas(id="chart2" width="10px" height="10px")
+                                    script.
+                                        var red = "#{red}", green = "#{green}", blue = "#{blue}";
+                                        var ctx = document.getElementById("chart2").getContext('2d');
+                                        var chart = new Chart(ctx, {
+                                            type: 'doughnut',
+                                            data: {
+                                                labels: ["available", "used"],
+                                                datasets: [{
+                                                    label: 'Number of votes',
+                                                    data: [#{row.PtoBalanceSick}, 1],
+                                                    backgroundColor: ["green", "red"],
+                                                    borderColor: ["black", "black", "black"],
+                                                    borderWidth: 1
+                                                }],
+                                            },
+                                            options: {
+                                                title: {
+                                                    display: true,
+                                                    text: "chart",
+                                                },
+                                                legend: {
+                                                    position: 'bottom'
+                                                },
+                                            }
+                                        });
+                        //div.donut
+                        //    div.hole
+
+                    div.column Vacation
+                        div Days Left/Total: #{row.PtoBalanceVacation}
+                            div.chart
+                                canvas(id="chart3" width="10px" height="10px")
+                                    script.
+                                        var red = "#{red}", green = "#{green}", blue = "#{blue}";
+                                        var ctx = document.getElementById("chart3").getContext('2d');
+                                        var chart = new Chart(ctx, {
+                                            type: 'doughnut',
+                                            data: {
+                                                labels: ["available", "used"],
+                                                datasets: [{
+                                                    label: 'Number of votes',
+                                                    data: [#{row.PtoBalanceVacation}, 1],
+                                                    backgroundColor: ["green", "red"],
+                                                    borderColor: ["black", "black", "black"],
+                                                    borderWidth: 1
+                                                }],
+                                            },
+                                            options: {
+                                                title: {
+                                                    display: true,
+                                                    text: "chart",
+                                                },
+                                                legend: {
+                                                    position: 'bottom'
+                                                },
+                                            }
+                                        });
+
+
+                    div.column Total:
                         div.chart
                             canvas(id="chart4" width="10px" height="10px")
                                 script.
@@ -56,12 +121,12 @@ html
                                     var chart = new Chart(ctx, {
                                         type: 'doughnut',
                                         data: {
-                                            labels: ["red", "green", "blue"],
+                                            labels: ["Sick", "Personal", "Vacation"],
                                             datasets: [{
                                                 label: 'Number of votes',
-                                                data: [#{totalDays}, 1, 1],
+                                                data: [#{row.PtoBalanceSick}, #{row.PtoBalancePersonal}, #{row.PtoBalanceVacation}],
                                                 backgroundColor: ["red", "green", "blue"],
-                                                borderColor: ["green", "blue", "red"],
+                                                borderColor: ["black", "black", "black"],
                                                 borderWidth: 1
                                             }],
                                         },
@@ -76,7 +141,7 @@ html
                                         }
                                     });
 
-                div.column Vacation
-                    div Days Left: 6/20
-                div.column Total
-                    div Days Left: 6/12
+                    div.column Vacation
+                        div Days Left: 6/20
+                    div.column Total
+                        div Days Left: 6/12
