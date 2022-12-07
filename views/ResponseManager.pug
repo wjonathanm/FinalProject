@@ -18,30 +18,30 @@ html
             }
         include html/ManagerNav.html
         each row in info
-        h1 Manager #{row.FirstName} #{row.LastName} Response Requests
-        h5 ID: #{row.LeaderId} | #{row.Email}
-        br
-        h3
-            p Response to My Request
-            table
-                tr
-                    th Start Date
-                    th End Date
-                    th PTO Type
-                    th Reasoning
-                tr
-                    td 06/17/2022
-                    td 06/21/2022
-                    td Vacation
-                    td Blah Blah Blah
+            h1 Manager #{row.FirstName} #{row.LastName} Response Requests
+            h5 ID: #{row.LeaderId} | #{row.Email}
             br
-            table
-                tr
-                    th Your request has been adjusted to a more suitable time for the company to accept in which I would recommend this date instead if it works for you.
-                tr
-                    td 06/17 - 06/19
-                tr
-                    td
-                        button Accept
-                        button Respond
+            h3
+                p Response to My Request
+                table
+                    tr
+                        th Start Date
+                        th End Date
+                        th PTO Type
+                        th Reasoning
+                    tr
+                        td 06/17/2022
+                        td 06/21/2022
+                        td Vacation
+                        td Blah Blah Blah
+                br
+                table
+                    tr
+                        th Your request has been adjusted to a more suitable time for the company to accept in which I would recommend this date instead if it works for you.
+                    tr
+                        td 06/17 - 06/19
+                    tr
+                        td
+                            button Accept
+                            button Respond
 

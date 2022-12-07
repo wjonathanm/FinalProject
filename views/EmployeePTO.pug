@@ -57,7 +57,7 @@ html
                 br
                 div.row
                     div.column Personal
-                        div Days Left/Total: #{row.PtoBalancePersonal}
+                        div Days Left: #{row.PtoBalancePersonal}
                         div.chart
                             canvas(id="chart1" width="10px" height="10px")
                                 script.
@@ -89,7 +89,7 @@ html
                                     };
 
                     div.column Sick
-                        div Days Left/Total: #{row.PtoBalanceSick}
+                        div Days Left: #{row.PtoBalanceSick}
                             div.chart
                                 canvas(id="chart2" width="10px" height="10px")
                                     script.
@@ -121,7 +121,7 @@ html
                         //    div.hole
 
                     div.column Vacation
-                        div Days Left/Total: #{row.PtoBalanceVacation}
+                        div Days Left: #{row.PtoBalanceVacation}
                             div.chart
                                 canvas(id="chart3" width="10px" height="10px")
                                     script.
@@ -152,33 +152,34 @@ html
 
 
                     div.column Total:
-                        div.chart
-                            canvas(id="chart4" width="10px" height="10px")
-                                script.
-                                    var red = "#{red}", green = "#{green}", blue = "#{blue}";
-                                    var ctx = document.getElementById("chart4").getContext('2d');
-                                    var chart = new Chart(ctx, {
-                                        type: 'doughnut',
-                                        data: {
-                                            labels: ["Sick", "Personal", "Vacation"],
-                                            datasets: [{
-                                                label: 'Number of votes',
-                                                data: [#{row.PtoBalanceSick}, #{row.PtoBalancePersonal}, #{row.PtoBalanceVacation}],
-                                                backgroundColor: ["red", "green", "blue"],
-                                                borderColor: ["black", "black", "black"],
-                                                borderWidth: 1
-                                            }],
-                                        },
-                                        options: {
-                                            title: {
-                                                display: true,
-                                                text: "chart",
+                        div Days Left:#{row.PtoBalanceVacation+row.PtoBalancePersonal+row.PtoBalanceSick}
+                            div.chart
+                                canvas(id="chart4" width="10px" height="10px")
+                                    script.
+                                        var red = "#{red}", green = "#{green}", blue = "#{blue}";
+                                        var ctx = document.getElementById("chart4").getContext('2d');
+                                        var chart = new Chart(ctx, {
+                                            type: 'doughnut',
+                                            data: {
+                                                labels: ["Sick", "Personal", "Vacation"],
+                                                datasets: [{
+                                                    label: 'Number of votes',
+                                                    data: [#{row.PtoBalanceSick}, #{row.PtoBalancePersonal}, #{row.PtoBalanceVacation}],
+                                                    backgroundColor: ["red", "green", "blue"],
+                                                    borderColor: ["black", "black", "black"],
+                                                    borderWidth: 1
+                                                }],
                                             },
-                                            legend: {
-                                                position: 'bottom'
-                                            },
-                                        }
-                                    });
+                                            options: {
+                                                title: {
+                                                    display: true,
+                                                    text: "chart",
+                                                },
+                                                legend: {
+                                                    position: 'bottom'
+                                                },
+                                            }
+                                        });
 
             h1 Active Requests
             h2
