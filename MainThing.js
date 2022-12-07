@@ -2,6 +2,7 @@ const pug = require('pug');
 const express = require('express');
 const bcrypt = require('bcrypt')
 const crypto = require('crypto');
+const url = require('url');
 // const crypto = require('crypto');
 const algorithm = 'aes-256-cbc';
 const key = crypto.randomBytes(32);
@@ -40,8 +41,19 @@ const {SERVER_STATUS_LAST_ROW_SENT} = require("mysql/lib/protocol/constants/serv
 // const data = require("./public/data/PTOUserSeedData.json");
 
 app.get("/chart", function (req,res){
-    res.render('insertEmp',{
-
+    let Uid = req.session.Uid;
+    let sql = `SELECT * FROM Employees WHERE EmployeeId = "${Uid}"`
+    console.log(sql)
+    con.query(sql, function (error, data) {
+        if ( error) {
+            throw error;
+        } else {
+            console.log( data);
+            // req.session.Uid = data[count].Uid;
+        }
+        res.render( 'EmployeePTO', {
+            info : data
+        });
     })
 })
 app.get("/LogIn", (req, res) => {
@@ -49,9 +61,10 @@ app.get("/LogIn", (req, res) => {
     })
 });
 app.get("/EmployeePTO", (req, res) => {
-    let Uid=100856;
+    // let Uid=100856;
     // let Uid = req.body.userId;
     // console.log(Uid)
+    let Uid = req.session.Uid;
     let sql = `SELECT * FROM Employees WHERE EmployeeId = "${Uid}"`
     console.log(sql)
     con.query(sql, function (error, data) {
@@ -184,10 +197,32 @@ app.post("/LogIn", function (req, res) {
             if (data.length > 0) {
                 for (var count = 0; count < data.length; count++) {
                     if (data[count].EmployeeId == Uid && data[count].Role == "Employee") {
-                        req.session.Uid = data[count].Uid;
+                        req.session.loggedin = true;
+                        req.session.Uid = Uid;
+                        console.log(req.session.Uid)
 
                         res.redirect("/EmployeePTO");
-
+                        // let id = data[count].EmployeeId;
+                        // let role = data[count].Role;
+                        // let fname = data[count].FirstName;
+                        // let lname = data[count].LastName;
+                        // let lid = data[count].LeaderId;
+                        // let hire = data[count].HireDate;
+                        // let sick = data[count].PtoBalanceSick;
+                        // let personal = data[count].PtoBalancePersonal;
+                        // let vacation = data[count].PtoBalanceVacation;
+                        // res.render('insertEmp', {
+                        //     id : id,
+                        //     role : role,
+                        //     fname : fname,
+                        //     lname : lname,
+                        //     lid : lid,
+                        //     hire : hire,
+                        //     sick : sick,
+                        //     personal : personal,
+                        //     vacation : vacation,
+                        //
+                        // })
                     } else if (data[count].EmployeeId == Uid && data[count].Role == "Manager") {
                         req.session.Uid = data[count].Uid;
 
