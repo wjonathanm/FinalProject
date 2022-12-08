@@ -246,7 +246,8 @@ app.post("/AdminUser/SetHoliday", (req, res) => {
 app.get('/AdminUser/SearchBarEmployee', (req, res) => {
     let searchid=req.searchid
     let sql = `select Employeeid,FirstName,LastName,HireDate`;
-    sql += ` from Employees Where Employeeid="${searchid}"`;
+    // sql += ` from Employees Where Employeeid="${searchid}"`; Update to work with html file
+    sql += ` from Employees Where Employeeid= Employeeid`;
     console.log("sql=",sql)
     con.query( sql, function(err, results ){
         if ( err) {
