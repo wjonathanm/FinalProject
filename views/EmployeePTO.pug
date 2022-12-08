@@ -70,7 +70,7 @@ html
                                                 labels: ["available", "used"],
                                                 datasets: [{
                                                     label: 'Number of votes',
-                                                    data: [#{row.PtoBalancePersonal},1],
+                                                    data: [#{row.PtoBalancePersonal},3],
                                                     backgroundColor: ["green", "red"],
                                                     borderColor: ["black", "black", "black"],
                                                     borderWidth: 1
@@ -101,7 +101,7 @@ html
                                                 labels: ["available", "used"],
                                                 datasets: [{
                                                     label: 'Number of votes',
-                                                    data: [#{row.PtoBalanceSick}, 1],
+                                                    data: [#{row.PtoBalanceSick}, 7],
                                                     backgroundColor: ["green", "red"],
                                                     borderColor: ["black", "black", "black"],
                                                     borderWidth: 1
@@ -133,7 +133,7 @@ html
                                                 labels: ["available", "used"],
                                                 datasets: [{
                                                     label: 'Number of votes',
-                                                    data: [#{row.PtoBalanceVacation}, 1],
+                                                    data: [#{row.PtoBalanceVacation}, 14],
                                                     backgroundColor: ["green", "red"],
                                                     borderColor: ["black", "black", "black"],
                                                     borderWidth: 1
@@ -151,8 +151,8 @@ html
                                         });
 
 
-                    div.column Total:
-                        div Days Left:#{row.PtoBalanceVacation+row.PtoBalancePersonal+row.PtoBalanceSick}
+                    div.column Total Available:
+                        div Days Left: #{row.PtoBalanceVacation+row.PtoBalancePersonal+row.PtoBalanceSick}
                             div.chart
                                 canvas(id="chart4" width="10px" height="10px")
                                     script.
@@ -186,15 +186,18 @@ html
                 br
                 table.table
                     tr
-                        th Date Off
+                        th Start Date
+                        th End Date
                         th PTO Type
                         th Status
                         th Request Date
                     tr
                         td #{row.StartDate}
-                        td #{row.ptoType}
+                        td #{row.EndDate}
+                        td #{row.PtoType}
+                        //td #{row.Status}
                         td Requested
                         td #{row.RequestDate}
 
-                h3
-                    button.b1(class='btn btn-success' type='button' value='Request' onclick='/EmployeePTO') Request
+                //h3
+                //    button.b1(class='btn btn-success' type='button' value='Request' onclick='/EmployeePTO/Request') Request

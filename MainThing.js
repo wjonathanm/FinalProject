@@ -66,13 +66,15 @@ app.get("/EmployeePTO", (req, res) => {
     // console.log(Uid)
     let Uid = req.session.Uid;
     // let sql = `SELECT * FROM Employees WHERE EmployeeId = "${Uid}"`
+    // let sql1= `SELECT * FROM RequestForm WHERE EmployeeId = "${Uid}"`
+    // console.log(sql1)
     let sql = `SELECT * From Employees e JOIN RequestForm r ON (e.EmployeeId = r.EmployeeId) Where e.EmployeeId = "${Uid}"`
-    console.log(sql)
+    // console.log(sql)
     con.query(sql, function (error, data) {
         if ( error) {
             throw error;
         } else {
-            console.log( data);
+            // console.log( data);
             // req.session.Uid = data[count].Uid;
         }
         res.render( 'EmployeePTO', {
@@ -80,6 +82,18 @@ app.get("/EmployeePTO", (req, res) => {
 
         });
     })
+    // con.query(sql1, function (error, data1) {
+    //     if ( error) {
+    //         throw error;
+    //     } else {
+    //         console.log( data1);
+    //         // req.session.Uid = data[count].Uid;
+    //     }
+    //     res.render( 'EmployeePTO', {
+    //         data : data1
+    //
+    //     });
+    // })
 
 });
 app.post("/EmployeePTO/Request",function (req,res){
