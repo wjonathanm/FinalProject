@@ -234,9 +234,19 @@ app.get("/AdminUser/SetHoliday", (req, res) => {
     res.render('SetHoliday', {
     })
 });
+app.post("/AdminUser/SetHoliday", (req, res) => {
+    let hdate = req.body.holiday;
+    let sql = `Insert into Holiday (Hid,Hname,Hdate)`;
+    sql += ` Value('1','Christmas','${hdate}')`
+    console.log(`sql:${sql}`);
+    con.query(sql);
+    res.end()
+
+})
 app.get('/AdminUser/SearchBarEmployee', (req, res) => {
-    let sql = 'select Employeeid,FirstName,LastName,HireDate';
-    sql += ' from Employees Where Employeeid= Employeeid';
+    let searchid=req.searchid
+    let sql = `select Employeeid,FirstName,LastName,HireDate`;
+    sql += ` from Employees Where Employeeid="${searchid}"`;
     console.log("sql=",sql)
     con.query( sql, function(err, results ){
         if ( err) {
