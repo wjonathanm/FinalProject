@@ -129,28 +129,101 @@ app.get("/ManagerPTO", (req,res) => {
 
 });
 app.get("/ManagerPTO/RequestManager", (req,res) => {
-    res.render('RequestManager',{
-    });
+    let Mid=465217;
+
+    let sql = `SELECT * FROM Leader WHERE LeaderId = "${Mid}"`
+    console.log(sql)
+    con.query(sql, function (error, data) {
+        if (error) {
+            throw error;
+        } else {
+            console.log(data);
+        }
+        res.render( 'RequestManager', {
+            info : data
+        });
+    })
+
 });
 app.get("/ManagerPTO/WorkersRequestManager", (req,res) => {
-    res.render('WorkersRequestManager',{
-    });
+    let Mid=465217;
+
+    let sql = `SELECT * FROM Leader WHERE LeaderId = "${Mid}"`
+    console.log(sql)
+    con.query(sql, function (error, data) {
+        if (error) {
+            throw error;
+        } else {
+            console.log(data);
+        }
+        res.render( 'WorkersRequestManager', {
+            info : data
+        });
+    })
 });
 app.get("/ManagerPTO/PendingRequestManager", (req,res) => {
-    res.render('PendingRequestManager',{
-    });
+    let Mid=465217;
+
+    let sql = `SELECT * FROM Leader WHERE LeaderId = "${Mid}"`
+    console.log(sql)
+    con.query(sql, function (error, data) {
+        if (error) {
+            throw error;
+        } else {
+            console.log(data);
+        }
+        res.render( 'PendingRequestManager', {
+            info : data
+        });
+    })
 });
 app.get("/ManagerPTO/ResponseManager", (req, res) => {
-    res.render('ResponseManager', {
-    });
+    let Mid=465217;
+
+    let sql = `SELECT * FROM Leader WHERE LeaderId = "${Mid}"`
+    console.log(sql)
+    con.query(sql, function (error, data) {
+        if (error) {
+            throw error;
+        } else {
+            console.log(data);
+        }
+        res.render( 'ResponseManager', {
+            info : data
+        });
+    })
 });
 app.get("/ManagerPTO/ResponseEmpManager", (req, res) => {
-    res.render('ResponseEmpManager', {
-    });
+    let Mid=465217;
+
+    let sql = `SELECT * FROM Leader WHERE LeaderId = "${Mid}"`
+    console.log(sql)
+    con.query(sql, function (error, data) {
+        if (error) {
+            throw error;
+        } else {
+            console.log(data);
+        }
+        res.render( 'ResponseEmpManager', {
+            info : data
+        });
+    })
 });
 app.get("/ManagerPTO/ResponsePending", (req, res) => {
-    res.render('ResponsePending', {
-    });
+    let Mid=465217;
+
+    let sql = `SELECT * FROM Leader WHERE LeaderId = "${Mid}"`
+    console.log(sql)
+    con.query(sql, function (error, data) {
+        if (error) {
+            throw error;
+        } else {
+            console.log(data);
+        }
+        res.render( 'ResponsePending', {
+            info : data
+        });
+    })
 });
 
 app.get("/AdminUser", (req, res) => {
